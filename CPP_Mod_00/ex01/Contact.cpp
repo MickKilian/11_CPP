@@ -19,11 +19,11 @@ Contact	Contact::defineNewContact() {
 
 	std::cout << BOLDGREEN << "\n** ADD mode ** " << RESET;
 	std::cout << BLUE << "Please enter new contact." << RESET << std::endl;
-	if (Input::getInput(&firstName, "First name : ")
-		|| Input::getInput(&lastName, "Last name : ")
-		|| Input::getInput(&nickName, "Nick name : ")
-		|| Input::getInput(&number, "Number : ")
-		|| Input::getInput(&secret, "Secret : "))
+	if (Input::getInput(firstName, "First name : ")
+		|| Input::getInput(lastName, "Last name : ")
+		|| Input::getInput(nickName, "Nick name : ")
+		|| Input::getInput(number, "Number : ")
+		|| Input::getInput(secret, "Secret : "))
 			;
 	Contact	newContact(firstName, lastName, nickName, number, secret);
 	return newContact;
@@ -55,7 +55,7 @@ std::string	Contact::inputField(const std::string& text) {
 
 	while (input == "")
 	{
-		Input::getInput(&input, text);
+		Input::getInput(input, text);
 	}
 	return input;
 }

@@ -17,7 +17,7 @@ void	PhoneBook::promptUser() {
 		std::cout << GREEN << "* Search contact you want to see (SEARCH)" << RESET << std::endl;
 		std::cout << GREEN << "* Exit PhoneBook (EXIT)" << RESET << std::endl;
 		std::cout << BLUE << "What do you want to do?" << RESET << std::endl;
-		while (not Input::getInput(&input, ">") and input != "ADD" and input != "SEARCH" and input != "EXIT")
+		while (not Input::getInput(input, ">") and input != "ADD" and input != "SEARCH" and input != "EXIT")
 		{
 			if (std::cin.eof())
 				return;
@@ -72,13 +72,17 @@ void	PhoneBook::searchContact() const {
 		//std::cout << BOLDGREEN << "_____________________________________________" << RESET << std::endl;
 		std::cout << BOLDGREEN << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << RESET << std::endl;
 		std::cout << BOLDGREEN << "\n** SEARCH mode ** " << RESET;
-		std::cout << BLUE << "Enter index of contact are you interested in." << RESET << std::endl;
-		while (not Input::getInput(&sinput, ">") || index < 1 || index > _nbContacts)
+		std::cout << BLUE << "Enter index of contact you are interested in." << RESET << std::endl;
+		while (not Input::getInput(sinput, ">") || index < 1 || index > _nbContacts)
 		{
 			if (std::cin.eof())
 				return;
-			std::stringstream (sinput) >> index;
-			if (index < 1 || index > _nbContacts)
+			if (!(std::stringstream(sinput) >> index))
+			{
+				std::cout << RED << "This input is invalid." << RESET << std::endl;
+				std::cout << RED << "Please enter a valid index." << RESET << std::endl;
+			}
+			else if (index < 1 || index > _nbContacts)
 				std::cout << RED << "Please enter a valid index." << RESET << std::endl;
 			else
 				break;

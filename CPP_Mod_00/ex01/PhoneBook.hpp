@@ -5,7 +5,6 @@
 #include "Input.hpp"
 #include <iostream>
 #include <string>
-#include <sstream>
 
 #define MAXENTRIES 2
 
