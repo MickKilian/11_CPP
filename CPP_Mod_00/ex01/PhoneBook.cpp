@@ -9,7 +9,7 @@ PhoneBook::~PhoneBook() {
 void	PhoneBook::promptUser() {
 	std::string input;
 
-	std::cout << std::endl << BOLDGREEN << "Welcome to my PhoneBook!" << RESET << std::endl;
+	std::cout << std::endl << BOLDGREEN << "Welcome to my Awesome PhoneBook!" << RESET << std::endl;
 	while (not std::cin.eof())
 	{
 		std::cout << BOLDGREEN << "\n** Main Menu **" << RESET << std::endl;

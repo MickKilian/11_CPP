@@ -15,13 +15,6 @@
 #define CYAN			"\x1b[36m"
 #define WHITE			"\x1b[37m"
 #define RESET			"\x1b[0m"
-\x1b[48;2;008;000;000m
-
-"\x1b"
-int n = 0xff;
-int a = 255;
-char c = 255;
-const char* str = "\023";
 
 class	Input {
 	public:
