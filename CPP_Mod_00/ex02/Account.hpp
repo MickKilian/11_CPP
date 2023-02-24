@@ -55,3 +55,5 @@ private:
 	Account( void );
 
 };
+
+#endif /* __ACCOUNT_H__ */
