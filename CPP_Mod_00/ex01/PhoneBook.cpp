@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : _contact(), _nbContacts(0)  {
+PhoneBook::PhoneBook() {
+	_nbContacts = 0;
 }
 
 PhoneBook::~PhoneBook() {
@@ -23,11 +24,6 @@ void	PhoneBook::promptUser() {
 				return;
 			else if (input != "ADD" and input != "SEARCH" and input != "EXIT")
 				std::cout << RED << "Please enter a valid action (ADD, SEARCH or EXIT)." << RESET << std::endl;
-//				std::cout << "jWhat do you want to do (ADD, SEARCH, EXIT)?" << std::endl;
-//				if (!std::cin.eof())
-//					std::cin >> input;
-//				else
-//					return;
 		}
 		switch (input[0])
 		{
@@ -46,16 +42,25 @@ void	PhoneBook::promptUser() {
 }
 
 void	PhoneBook::addContact() {
-	Contact	newContact;
-
-	newContact = _contact[0].defineNewContact();
 	++_nbContacts;
+	int	index = _nbContacts - 1;
+
 	if (_nbContacts > MAXENTRIES)
 	{
-		std::cout << RED << "\nContact #" << MAXENTRIES << " is replaced by new contact." << RESET << std::endl;
+		index = MAXENTRIES - 1;
+		for (int i = 0; i < MAXENTRIES - 1; ++i) {
+			this->_contact[i] = this->_contact[i + 1];
+		}
+	}
+	_contact[index].setContact();
+	if (index != _nbContacts - 1) {
+		std::cout << RED << "\noldest contact was removed, and contact #" << index + 1 << " was successfully added." << RESET << std::endl;
 		_nbContacts = MAXENTRIES;
 	}
-	_contact[_nbContacts - 1] = newContact;
+	else {
+		std::cout << BOLDCYAN << "Contact #" << index + 1 << " was successfully added." << RESET << std::endl;
+	}
+	return;
 }
 
 void	PhoneBook::searchContact() const {
@@ -69,7 +74,6 @@ void	PhoneBook::searchContact() const {
 		for (int i = 0; i < _nbContacts ; ++i) {
 			_contact[i].displayShortContact(i);
 		}
-		//std::cout << BOLDGREEN << "_____________________________________________" << RESET << std::endl;
 		std::cout << BOLDGREEN << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << RESET << std::endl;
 		std::cout << BOLDGREEN << "\n** SEARCH mode ** " << RESET;
 		std::cout << BLUE << "Enter index of contact you are interested in." << RESET << std::endl;

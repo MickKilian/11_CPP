@@ -1,53 +1,46 @@
 #include "Contact.hpp"
 
-Contact::Contact() : _firstName(""), _lastName(""), _nickName(""), _number(""), _secret("") {
-}
-
-Contact::Contact(const std::string firstName, const std::string lastName, const std::string nickName, const std::string number, const std::string secret) : _firstName(firstName),
-	_lastName(lastName), _nickName(nickName), _number(number), _secret(secret) {
+Contact::Contact() {
+	for (int i = 0; i < 5; i++) {
+		_infos[i] = std::string();
+	}
 }
 
 Contact::~Contact() {
 }
 
-Contact	Contact::defineNewContact() {
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string number;
-	std::string secret;
+std::string	const	Contact::_contactLabels[5] = { "First name", "Last name", "Nick name", "Number", "Darkest secret" };
 
+void	Contact::setContact() {
 	std::cout << BOLDGREEN << "\n** ADD mode ** " << RESET;
 	std::cout << BLUE << "Please enter new contact." << RESET << std::endl;
-	if (Input::getInput(firstName, "First name : ")
-		|| Input::getInput(lastName, "Last name : ")
-		|| Input::getInput(nickName, "Nick name : ")
-		|| Input::getInput(number, "Number : ")
-		|| Input::getInput(secret, "Secret : "))
-			;
-	Contact	newContact(firstName, lastName, nickName, number, secret);
-	return newContact;
+	for (int i = 0; i < 5; i++) {
+		if (Input::getInput(this->_infos[i], Contact::_contactLabels[i] + " : "))
+			break;
+	}
 }
 
 void Contact::displayShortContact(const int index) const {
 	std::cout << BOLDGREEN << "|" << RESET;
 	std::cout << GREEN << std::setw(10) << index + 1 << BOLDGREEN << "|" << RESET;
-	std::cout << GREEN << std::setw(10) << trunc(_firstName) << BOLDGREEN << "|" << RESET;
-	std::cout << GREEN << std::setw(10) << trunc(_lastName) << BOLDGREEN << "|" << RESET;
-	std::cout << GREEN << std::setw(10) << trunc(_nickName) << BOLDGREEN << "|" << RESET << std::endl;
+	for (int i = 0; i < 3; i++) {
+		//std::cout << GREEN << std::setw(10) << trunc(this->_infos[i]) << BOLDGREEN << "|" << RESET;
+		if (this->_infos[i].size() > 10) {
+			std::cout << GREEN << std::setw(9) << this->_infos[i].substr(0, 9) << "." << RESET;
+		}
+		else {
+			std::cout << GREEN << std::setw(10) << this->_infos[i] << RESET;
+		}
+		std::cout << BOLDGREEN << "|" << RESET;
+	}
+	std::cout << std::endl;
 }
 
 void Contact::displayFullContact() const {
-	std::cout << BOLDMAGENTA << "First name : " RESET;
-	std::cout << MAGENTA << _firstName << RESET << std::endl;
-	std::cout << BOLDMAGENTA << "Last name : " << RESET;
-	std::cout << MAGENTA << _lastName << RESET << std::endl;
-	std::cout << BOLDMAGENTA << "Nick name : " << RESET;
-	std::cout << MAGENTA << _nickName << RESET << std::endl;
-	std::cout << BOLDMAGENTA << "Number : " << RESET;
-	std::cout << MAGENTA << _number << RESET << std::endl;
-	std::cout << BOLDMAGENTA << "Darkest secret : " << RESET;
-	std::cout << MAGENTA << _secret << RESET << std::endl;
+	for (int i = 0; i < 5; ++i) {
+	std::cout << BOLDMAGENTA << Contact::_contactLabels[i] + " : " RESET;
+		std::cout << MAGENTA << _infos[i] << RESET << std::endl;
+	}
 }
 
 std::string	Contact::inputField(const std::string& text) {

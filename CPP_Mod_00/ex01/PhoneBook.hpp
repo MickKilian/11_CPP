@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 
-#define MAXENTRIES 2
+#define MAXENTRIES 8
 
 class	PhoneBook {
 	public:

@@ -13,6 +13,7 @@
 #define MAGENTA			"\x1b[35m"
 #define BOLDMAGENTA		"\x1b[35;1m"
 #define CYAN			"\x1b[36m"
+#define BOLDCYAN		"\x1b[36;1m"
 #define WHITE			"\x1b[37m"
 #define RESET			"\x1b[0m"
 

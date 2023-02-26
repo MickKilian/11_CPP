@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:20:48 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/02/23 00:49:06 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/02/26 00:02:29 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	Input::checkInput(const std::string& input)
 		return 1;
 }
 
-std::string 	Input::split(const std::string& str)
+std::string	Input::split(const std::string& str)
 {
 	std::stringstream ss(str);
 	std::string       ret;
