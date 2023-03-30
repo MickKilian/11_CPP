@@ -6,30 +6,35 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/02/24 01:13:42 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/03/30 03:25:47 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= megaphone
+NAME		= The_job_of_your_dreams
 
-CC			= clang++
+CC			= c++
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= megaphone.cpp
+DFLAGS		= -MMD -MF
+
+SRCS	 	= Account.cpp test.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
+
+DEPS		= $(OBJS:.o=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
+-include $(DEPS)
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DFLAGS) $*.d -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)

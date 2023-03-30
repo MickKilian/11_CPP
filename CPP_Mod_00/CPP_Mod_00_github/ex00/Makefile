@@ -6,17 +6,17 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/02/24 01:18:56 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/03/29 20:17:20 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= My_awesome_phonebook
+NAME		= megaphone
 
-CC			= clang++
+CC			= c++
 
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= PhoneBook.cpp Contact.cpp Input.cpp main.cpp
+SRCS	 	= megaphone.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

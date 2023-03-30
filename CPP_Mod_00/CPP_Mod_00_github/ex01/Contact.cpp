@@ -24,7 +24,6 @@ void Contact::displayShortContact(const int index) const {
 	std::cout << BOLDGREEN << "|" << RESET;
 	std::cout << GREEN << std::setw(10) << index + 1 << BOLDGREEN << "|" << RESET;
 	for (int i = 0; i < 3; i++) {
-		//std::cout << GREEN << std::setw(10) << trunc(this->_infos[i]) << BOLDGREEN << "|" << RESET;
 		if (this->_infos[i].size() > 10) {
 			std::cout << GREEN << std::setw(9) << this->_infos[i].substr(0, 9) << "." << RESET;
 		}
@@ -47,21 +46,6 @@ std::string	Contact::inputField(const std::string& text) {
 	std::string	input = "";
 
 	while (input == "")
-	{
 		Input::getInput(input, text);
-	}
 	return input;
-}
-
-std::string	Contact::trunc(const std::string& text) const {
-	std::string	str;
-
-	if (text.length() > 10)
-	{
-		str = text.substr(0, 10);
-		str.replace(9, 1, ".");
-	}
-	else
-		str = text;
-	return str;
 }

@@ -6,13 +6,11 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 21:20:48 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/02/26 00:02:29 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/03/30 03:13:37 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Input.hpp"
-
-
 
 int	Input::getInput(std::string& input, const std::string& text, const std::string& color)
 {

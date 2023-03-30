@@ -19,7 +19,6 @@ class	Contact {
 	private:
 	
 	std::string	inputField(const std::string& text);
-	std::string	trunc(const std::string& text) const;
 	std::string	_infos[5];
 	static	std::string	const	_contactLabels[5];
 };

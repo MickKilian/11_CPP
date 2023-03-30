@@ -57,7 +57,7 @@ void	PhoneBook::addContact() {
 		std::cout << RED << "\noldest contact was removed, and contact #" << index + 1 << " was successfully added." << RESET << std::endl;
 		_nbContacts = MAXENTRIES;
 	}
-	else {
+	else if (not std::cin.eof()) {
 		std::cout << BOLDCYAN << "Contact #" << index + 1 << " was successfully added." << RESET << std::endl;
 	}
 	return;
