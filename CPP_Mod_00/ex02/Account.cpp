@@ -16,7 +16,6 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
-#include <algorithm>
 
 Account::Account() :	_accountIndex(_nbAccounts++), _amount(0),
 						_nbDeposits(0), _nbWithdrawals(0) {
