@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 18:27:43 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/06/30 15:25:56 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/06/30 18:00:17 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int	StreamEditor::execute() {
 	if (!ifs)
 		return (-1);
 	std::ofstream	ofs(_inFile.append(".replace").c_str());
-	if (!ofs)
+	if (!ofs) {
+		ifs.close();
 		return (-1);
+	}
 	while (!ifs.eof()) {
 		std::getline(ifs, line);
 		pos = 0;
@@ -48,5 +50,7 @@ int	StreamEditor::execute() {
 		if (!ifs.eof())
 			ofs << std::endl;
 	}
+	ifs.close();
+	ofs.close();
 	return (count);
 }
