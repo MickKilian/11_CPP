@@ -6,30 +6,35 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/03/29 20:16:01 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/04/27 09:34:07 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= zombieHorde
+NAME		= moreBrains
 
 CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
+DFLAGS		= -MMD -MF
+
 SRCS	 	= Zombie.cpp zombieHorde.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
+
+DEPS		= $(OBJS:.o=.d)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.cpp Zombie.hpp
-	$(CC) $(CFLAGS) -c $< -o $@
+-include $(DEPS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) $(DFLAGS) $*.d -c $< -o $@
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(DEPS)
 
 fclean: clean
 	rm -f $(NAME)

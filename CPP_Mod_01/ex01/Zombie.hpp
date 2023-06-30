@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/29 00:26:50 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/06/30 14:04:00 by mbourgeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
 
@@ -7,12 +19,12 @@ class	Zombie {
 
 	public:
 
-		static void	setHordeName(std::string hordeName);
-
 		Zombie();
 		Zombie(std::string name);
 		~Zombie(void);
-		void	announce(void);
+
+		static void	setHordeName(std::string hordeName);
+		void		announce(void);
 
 	private:
 
@@ -21,10 +33,5 @@ class	Zombie {
 
 		std::string	_name;
 };
-
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
-Zombie* zombieHorde(int N, std::string name);
-Zombie* zombieHorde_2(int N, std::string name);
 
 #endif // ZOMBIE_H
