@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:11 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/04/29 02:38:25 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:49:27 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	Weapon {
 
 		Weapon(std::string type);
 		~Weapon(void);
-		const std::string&	getType(void) const;
+		std::string const &	getType(void) const;
 		void				setType(const std::string &type);
 
 	private:
