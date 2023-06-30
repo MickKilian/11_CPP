@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/29 00:26:24 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/04/29 00:33:25 by mbourgeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 
 #include <string>
@@ -17,16 +29,4 @@ Zombie::~Zombie() {
 void	Zombie::announce(void) {
 	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	return;
-}
-
-Zombie*	newZombie(std::string name) {
-	Zombie*	newZombie = new Zombie(name);
-
-	return (newZombie);
-}
-
-void	randomChump(std::string name) {
-	Zombie	zombie(name);
-
-	zombie.announce();
 }
