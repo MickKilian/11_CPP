@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:47 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/04/29 00:30:15 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/06/30 14:15:56 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,4 @@ int Zombie::_zombieID = 0;
 void	Zombie::announce(void) {
 	std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	return;
-}
-
-Zombie*	newZombie(std::string name) {
-	Zombie*	newZombie = new Zombie(name);
-
-	return (newZombie);
-}
-
-void	randomChump(std::string name) {
-	Zombie	zombie(name);
-
-	zombie.announce();
 }
