@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 04:01:42 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/06/30 15:22:58 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/07/02 19:40:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 int	main(int argc, char **argv) {
 	int	ret = -1;
-	if (argc != 4) {
+	if (argc != 4 || !argv[2][0]) {
 		std::cout << "Please enter ./mySed followed by 3 parameters (string) : "
 			<< "[filename] in which [toDelete] will be replaced by [toInsert]." << std::endl;
 		return 1;
@@ -42,8 +42,11 @@ int	main(int argc, char **argv) {
 	}
 	else {
 		std::cout << GREEN << "String was replaced "
-			<< MAGENTA << ret
-			<< GREEN << " times in file!" << RESET << std::endl; 
+			<< MAGENTA << ret;
+		if (ret > 1)
+			std::cout << GREEN << " times in file!" << RESET << std::endl;
+		else
+			std::cout << GREEN << " time in file!" << RESET << std::endl;
 		return 0;
 	}
 	return 0;
