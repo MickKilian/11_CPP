@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:11 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/04/29 02:34:12 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/07/02 19:14:00 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	HumanB {
 
 		HumanB(std::string);
 		~HumanB(void);
-		void	setWeapon(Weapon &weapon);
+		void	setWeapon(Weapon &eeapon);
 		void	attack(void) const;
 
 	private:

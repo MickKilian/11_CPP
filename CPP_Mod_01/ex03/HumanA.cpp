@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 00:26:11 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/04/29 01:55:14 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/07/02 19:14:46 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ HumanA::~HumanA(void) {
 }
 
 void	HumanA::attack(void) const {
-	std::cout << "<" << this->_name << "> attacks with their <" << this->_weapon.getType() << ">" << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon.getType() << std::endl;
 	return ;
 }
