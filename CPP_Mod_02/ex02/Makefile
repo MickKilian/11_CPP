@@ -6,7 +6,7 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/06/30 10:54:05 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/08/11 01:58:42 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
 DFLAGS		= -MMD -MF
 
-SRCS	 	= Point.cpp Fixed.cpp main.cpp
+SRCS	 	= Fixed.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

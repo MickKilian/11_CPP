@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 16:46:21 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/06/30 09:33:04 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/08/11 01:36:07 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Fixed::~Fixed(void) {
 	return;
 }
 
-Fixed &	Fixed::operator=(Fixed const &	rhs) {
+Fixed &	Fixed::operator=(Fixed const & rhs) {
 	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &rhs)
 		this->setRawBits(rhs.getRawBits());
@@ -48,12 +48,10 @@ Fixed &	Fixed::operator=(Fixed const &	rhs) {
 }
 
 int	Fixed::getRawBits(void) const {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixedPointValue);
 }
 
 void	Fixed::setRawBits(int const newValue) {
-	//std::cout << "setRawBits member function called" << std::endl;
 	_fixedPointValue = newValue;
 }
 
