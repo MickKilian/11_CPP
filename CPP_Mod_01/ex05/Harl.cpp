@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 22:55:43 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/04/30 19:06:29 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:06:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	Harl::complain( std::string level ) {
 void	Harl::_debug( void ) {
 	std::cout << GREEN
 		<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. "
-		<< " I really do !"
+		<< "I really do !"
 		<< RESET << std::endl;
 }
 

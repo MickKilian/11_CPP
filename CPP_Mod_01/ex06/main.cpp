@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 22:52:08 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/06/30 17:18:15 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:01:47 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int	main(int argc, char **argv) {
 	if (argc != 2) {
-		std::cout << RED <<"Please enter the minimum tolerated level of complaint as a parameter." << RESET << std::endl;
-		return 1;
-	}
-	else if (getLevel(argv[1]) == -1) {
-		std::cout << RED <<"Please enter a valid complaint level." << RESET << std::endl;
+		std::cout << RED <<"This program needs 1 parameter. Please enter the minimum tolerated level of complaint as a parameter." << RESET << std::endl;
 		return 1;
 	}
 	else {

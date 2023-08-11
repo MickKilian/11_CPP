@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/29 22:55:43 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/06/30 17:24:29 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:05:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ const t_level	Harl::allComments[] = { {"DEBUG", &Harl::_debug},
 void	Harl::_debug( void ) {
 	std::cout << GREEN
 		<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. "
-		<< " I really do !"
+		<< "I really do !"
 		<< RESET << std::endl << std::endl;
 }
 
@@ -91,7 +91,7 @@ int	getLevel(const std::string &level) {
 			return (i);
 		}
 		else if (Harl::allComments[i].str == "END")
-			return (-1);
+			return (10);
 		++i;
 	}
 }
