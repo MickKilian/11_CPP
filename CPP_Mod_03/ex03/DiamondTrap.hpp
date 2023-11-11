@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:57 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 23:28:17 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:52:09 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ public:
 	
 	DiamondTrap	&operator=(const DiamondTrap &);
 	void		attack(const std::string &);
-	void		whoAmI(void);
+	void		whoAmI(void) const;
+	std::string	getDiamondName(void) const;
 
 protected:
 	std::string		_name;

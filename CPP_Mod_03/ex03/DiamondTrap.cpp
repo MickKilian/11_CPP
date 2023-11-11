@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:45:25 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:54:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,19 @@ void	DiamondTrap::attack(const std::string &target) {
 	ScavTrap::attack(target);
 }
 
-void	DiamondTrap::whoAmI(void) {
+void	DiamondTrap::whoAmI(void) const {
 	std::cout << GREEN << _type << "'s name is : " << _name;
 	std::cout << RESET << std::endl;
 	std::cout << GREEN << ClapTrap::_type << "'s name is : " << ClapTrap::_name;
 	std::cout << RESET << std::endl;
 }
 
+std::string	DiamondTrap::getDiamondName(void) const {
+	return (_name);
+}
+
 std::ostream	&operator<<(std::ostream &o, DiamondTrap const &rhs) {
-	o << WHITE << "   " << rhs.getName() << "| " << "healthPoints: " << rhs.getHealth() << ", energyPoints: " << rhs.getEnergy() << ", damagePoints: " << rhs.getDamage() << ".";
+	o << WHITE << "   " << rhs.getDiamondName() << "| " << "healthPoints: " << rhs.getHealth() << ", energyPoints: " << rhs.getEnergy() << ", damagePoints: " << rhs.getDamage() << ".";
 	std::cout << RESET;
 	return (o);
 }

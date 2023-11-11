@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 23:31:20 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:56:55 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(void) {
 		std::cout << victor << std::endl;
 	}
 
+	std::cout << std::endl;
 	simon.beRepaired(10);
 	std::cout << simon << std::endl;
 
