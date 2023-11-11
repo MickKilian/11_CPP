@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:43:44 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:58:49 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other) {
 	this->_healthPoints = other._healthPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_damagePoints = other._damagePoints;
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
 }
 
