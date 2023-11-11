@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:02:08 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:43:36 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	_healthPoints = 100;
 	_energyPoints = 50;
 	_damagePoints = 20;
-	std::cout << "ScavTrap default constructor has been called." << std::endl;
+	std::cout << "ScavTrap parameter constructor has been called for " << name << "." << std::endl;
 }
 
 /*ScavTrap::ScavTrap() : ClapTrap("defaultName", 100, 50, 20) {

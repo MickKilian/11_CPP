@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:13:40 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:42:48 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ FragTrap::FragTrap() : ClapTrap() {
 	_healthPoints = 100;
 	_energyPoints = 100;
 	_damagePoints = 30;
-	std::cout << "FragTrap default constructor has been called." << std::endl;
+	std::cout << "FragTrap default constructor has been called for " << _name << "." << std::endl;
 }
 
 /*FragTrap::FragTrap() : ClapTrap("defaultName", 100, 50, 20) {
