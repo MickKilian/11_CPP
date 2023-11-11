@@ -6,19 +6,20 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 23:32:25 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:23:23 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap() {
+	_name = ClapTrap::_name;
 	ClapTrap::_name = _name + "_clap_name";
 	_type = "DiamondTrap";
 	_healthPoints = FragTrap::_healthPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_damagePoints = FragTrap::_damagePoints;
-	std::cout << "DiamondTrap default constructor has been called." << std::endl;
+	std::cout << "DiamondTrap default constructor has been called to create " << _name << "." << std::endl;
 }
 
 /*DiamondTrap::DiamondTrap() : ClapTrap("defaultName", 100, 50, 20) {
@@ -57,9 +58,9 @@ void	DiamondTrap::attack(const std::string &target) {
 }
 
 void	DiamondTrap::whoAmI(void) {
-	std::cout << GREEN << _type << "'s name is : " << _name << std::endl;
+	std::cout << GREEN << _type << "'s name is : " << _name;
 	std::cout << RESET << std::endl;
-	std::cout << GREEN << ClapTrap::_type << "'s name is : " << ClapTrap::_name << std::endl;
+	std::cout << GREEN << ClapTrap::_type << "'s name is : " << ClapTrap::_name;
 	std::cout << RESET << std::endl;
 }
 

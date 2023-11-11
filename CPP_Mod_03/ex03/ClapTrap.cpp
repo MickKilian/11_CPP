@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 22:21:52 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:55:46 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 
 ClapTrap::ClapTrap() : _type("ClapTrap"), _name("defaultName"), _healthPoints(10), _energyPoints(10), _damagePoints(0) {
-	std::cout << "ClapTrap default constructor has been called for " << _name << "." << std::endl;
+	std::cout << "ClapTrap default constructor has been called to create " << _name << "." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other) {
