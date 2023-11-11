@@ -6,23 +6,25 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 19:32:58 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:49:52 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void) {
-	ClapTrap	susan;
-	ClapTrap	elie("Elie");
-	ClapTrap	denise(elie);
-	ClapTrap	simona("Simona");
-	ClapTrap	eleanore = simona;
+	ScavTrap	susan;
+	ScavTrap	elie("Elie");
+	ScavTrap	denise(elie);
+	ScavTrap	simona("Simona");
+	ScavTrap	eleanore = simona;
+	ClapTrap	didie("Didie");
 
-	// We have 4 ClapTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
+	// We have 4 ScavTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
 	// None of them has damagePoints, so they can can attack but will not cause any damage to their opponent.
 
-	ClapTrap	simon("Simon"), victor("Victor");
+	ScavTrap	simon("Simon"), victor("Victor");
 	// We will use Simon and Victor to test our functions
 
 	std::cout << std::endl;
@@ -49,6 +51,8 @@ int	main(void) {
 
 	simon.beRepaired(10);
 	std::cout << simon << std::endl;
+
+	simon.guardGate();
 
 	//
 	std::cout << std::endl;

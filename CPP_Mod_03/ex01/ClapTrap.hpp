@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:42:12 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 17:16:32 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/07 19:44:11 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class ClapTrap {
 public:
 	ClapTrap();
 	ClapTrap(std::string);
+	//ClapTrap(std::string, unsigned int, unsigned int, unsigned int);
 	ClapTrap(const ClapTrap &);
 	~ClapTrap();
 	
@@ -46,13 +47,14 @@ public:
 	unsigned int	getEnergy() const;
 	unsigned int	getDamage() const;
 
-private:
+protected:
+	std::string		_type;
 	std::string		_name;
 	unsigned int	_healthPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_damagePoints;
 };
 
-std::ostream	&operator<<(std::ostream &o, ClapTrap const &scav);
+std::ostream	&operator<<(std::ostream &o, ClapTrap const &clap);
 
 #endif // CLAP_TRAP_H

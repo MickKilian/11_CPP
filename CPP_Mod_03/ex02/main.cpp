@@ -6,23 +6,25 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 19:32:58 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:15:13 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void) {
-	ClapTrap	susan;
-	ClapTrap	elie("Elie");
-	ClapTrap	denise(elie);
-	ClapTrap	simona("Simona");
-	ClapTrap	eleanore = simona;
+	FragTrap	susan;
+	FragTrap	elie("Elie");
+	FragTrap	denise(elie);
+	FragTrap	simona("Simona");
+	FragTrap	eleanore = simona;
+	ClapTrap	didie("Didie");
 
-	// We have 4 ClapTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
+	// We have 4 FragTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
 	// None of them has damagePoints, so they can can attack but will not cause any damage to their opponent.
 
-	ClapTrap	simon("Simon"), victor("Victor");
+	FragTrap	simon("Simon"), victor("Victor");
 	// We will use Simon and Victor to test our functions
 
 	std::cout << std::endl;
@@ -49,6 +51,8 @@ int	main(void) {
 
 	simon.beRepaired(10);
 	std::cout << simon << std::endl;
+
+	simon.highFiveGuys();
 
 	//
 	std::cout << std::endl;
