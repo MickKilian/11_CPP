@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:31:51 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/11 22:22:10 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other) {
 	return(*this);
 }
 
-void	ClapTrap::attack(const std::string& target) {
+void	ClapTrap::attack(const std::string &target) {
 	if (_healthPoints == 0) {
 		std::cout << RED << "ClaptTrap " << _name + " tried to attack but is already dead." << std::endl;
 		std::cout << RESET;
