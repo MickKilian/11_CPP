@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:23:23 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:26:35 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) {
 	_healthPoints = FragTrap::_healthPoints;
 	_energyPoints = ScavTrap::_energyPoints;
 	_damagePoints = FragTrap::_damagePoints;
-	std::cout << "DiamondTrap parameter constructor has been called for " << name << "." << std::endl;
+	std::cout << "DiamondTrap parametric constructor has been called for " << name << "." << std::endl;
 }
 
 DiamondTrap::~DiamondTrap(void) {
