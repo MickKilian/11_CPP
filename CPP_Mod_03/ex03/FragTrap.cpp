@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:32:29 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:45:41 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ FragTrap	&FragTrap::operator=(const FragTrap &other) {
 	this->_healthPoints = other._healthPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_damagePoints = other._damagePoints;
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
 }
 

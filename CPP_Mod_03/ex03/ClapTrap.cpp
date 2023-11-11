@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 23:55:46 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:43:44 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) {
 }
 
 ClapTrap::ClapTrap(std::string name) : _type("ClapTrap"), _name(name), _healthPoints(10), _energyPoints(10), _damagePoints(0) {
-	std::cout << "ClapTrap parametric constructor has been called for " << name << "." << std::endl;
+	std::cout << "ClapTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
 /*ClapTrap::ClapTrap(std::string name, unsigned int healthPoints, unsigned int energyPoints, unsigned int damagePoints) : _name(name), _healthPoints(healthPoints), _energyPoints(energyPoints), _damagePoints(damagePoints) {

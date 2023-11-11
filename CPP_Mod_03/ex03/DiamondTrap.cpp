@@ -6,13 +6,13 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:32:01 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:45:25 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
 	_name = ClapTrap::_name;
 	ClapTrap::_name = _name + "_clap_name";
 	_type = "DiamondTrap";
@@ -31,7 +31,8 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other) {
 	std::cout << "DiamondTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name) {
+	_name = name;
 	ClapTrap::_name = _name + "_clap_name";
 	_type = "DiamondTrap";
 	_healthPoints = FragTrap::_healthPoints;
@@ -49,7 +50,7 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other) {
 	this->_healthPoints = other._healthPoints;
 	this->_energyPoints = other._energyPoints;
 	this->_damagePoints = other._damagePoints;
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
 }
 
