@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:26:44 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:32:29 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	_healthPoints = 100;
 	_energyPoints = 100;
 	_damagePoints = 30;
-	std::cout << "FragTrap parametric constructor has been called for " << name << "." << std::endl;
+	std::cout << "FragTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
 FragTrap::~FragTrap(void) {

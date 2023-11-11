@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:28:24 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 00:32:45 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	_healthPoints = 100;
 	_energyPoints = 50;
 	_damagePoints = 20;
-	std::cout << "ScavTrap parametric constructor has been called for " << name << "." << std::endl;
+	std::cout << "ScavTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
