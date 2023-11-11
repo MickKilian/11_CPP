@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 23:13:45 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:32:25 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap() {
 	ClapTrap::_name = _name + "_clap_name";
-	std::cout << "   name is :" << _name << std::endl;
-	std::cout << "   ClapTrap_name is :" << ClapTrap::_name << std::endl;
 	_type = "DiamondTrap";
-	std::cout << "   type is :" << _type << std::endl;
 	_healthPoints = FragTrap::_healthPoints;
-	std::cout << "   health point is :" << _healthPoints << std::endl;
 	_energyPoints = ScavTrap::_energyPoints;
-	std::cout << "   energy point is :" << _energyPoints << std::endl;
 	_damagePoints = FragTrap::_damagePoints;
-	std::cout << "   damage point is :" << _damagePoints << std::endl;
 	std::cout << "DiamondTrap default constructor has been called." << std::endl;
 }
 
@@ -38,16 +32,10 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other) {
 
 DiamondTrap::DiamondTrap(std::string name) : FragTrap(name), ScavTrap(name) {
 	ClapTrap::_name = _name + "_clap_name";
-	std::cout << "   name is :" << _name << std::endl;
-	std::cout << "   ClapName_name is :" << ClapTrap::_name << std::endl;
 	_type = "DiamondTrap";
-	std::cout << "   type is :" << _type << std::endl;
 	_healthPoints = FragTrap::_healthPoints;
-	std::cout << "   health point is :" << _healthPoints << std::endl;
 	_energyPoints = ScavTrap::_energyPoints;
-	std::cout << "   energy point is :" << _energyPoints << std::endl;
 	_damagePoints = FragTrap::_damagePoints;
-	std::cout << "   damage point is :" << _damagePoints << std::endl;
 	std::cout << "DiamondTrap parameter constructor has been called for " << name << "." << std::endl;
 }
 
@@ -66,6 +54,13 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other) {
 
 void	DiamondTrap::attack(const std::string &target) {
 	ScavTrap::attack(target);
+}
+
+void	DiamondTrap::whoAmI(void) {
+	std::cout << GREEN << _type << "'s name is : " << _name << std::endl;
+	std::cout << RESET << std::endl;
+	std::cout << GREEN << ClapTrap::_type << "'s name is : " << ClapTrap::_name << std::endl;
+	std::cout << RESET << std::endl;
 }
 
 std::ostream	&operator<<(std::ostream &o, DiamondTrap const &rhs) {
