@@ -6,11 +6,11 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/11/07 20:16:02 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/11/12 03:08:58 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= repetitiveWork.out
+NAME		= fragTrap
 
 CC			= c++
 

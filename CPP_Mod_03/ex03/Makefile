@@ -6,11 +6,11 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/11/11 22:52:59 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/11/12 03:09:08 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= diamond.out
+NAME		= diamondTrap
 
 CC			= c++
 

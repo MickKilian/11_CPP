@@ -6,11 +6,11 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/11/07 19:22:43 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/11/12 03:08:40 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= serena.out
+NAME		= scavTrap
 
 CC			= c++
 
