@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 02:02:15 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 02:14:28 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ FragTrap::FragTrap(const FragTrap &other) {
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	_type = "FragTrap";
-	_healthPoints = 100;
-	_energyPoints = 100;
-	_damagePoints = 30;
+	_healthPoints = _defaultHealthPoints;
+	_energyPoints = _defaultEnergyPoints;
+	_damagePoints = _defaultDamagePoints;
 	std::cout << "FragTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
