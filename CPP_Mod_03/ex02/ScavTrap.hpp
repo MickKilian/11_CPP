@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:59 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:06:47 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 01:07:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	virtual ~ScavTrap();
 	
 	ScavTrap	&operator=(const ScavTrap &);
+	void		attack(const std::string &);
 	void		guardGate() const;
 };
 

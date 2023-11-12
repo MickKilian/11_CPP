@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:02:08 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 01:06:01 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	_healthPoints = 100;
 	_energyPoints = 50;
 	_damagePoints = 20;
-	std::cout << "ScavTrap parameter constructor has been called for " << name << "." << std::endl;
+	std::cout << "ScavTrap parametric constructor has been called for " << name << "." << std::endl;
 }
 
 ScavTrap::~ScavTrap(void) {
@@ -48,6 +48,29 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &other) {
 	this->_damagePoints = other._damagePoints;
 	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
 	return(*this);
+}
+
+void	ScavTrap::attack(const std::string &target) {
+	if (_healthPoints == 0) {
+		std::cout << RED << "ScavTrap" << " " << _name + " tried to attack but is already dead." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	if (_energyPoints == 0) {
+		std::cout << RED << "ScavTrap" << " " << _name + " tried to attack but has no more energy." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	--_energyPoints;
+	if (_damagePoints == 0) {
+		std::cout << RED << "ScavTrap" << " " << _name + " is attacking but has no damage points." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	else {
+		std::cout << BOLDRED << "ScavTrap" << " " << _name << " is attacking " << target << " causing " << _damagePoints << " points of damage." << std::endl;
+		std::cout << RESET;
+	}
 }
 
 void	ScavTrap::guardGate() const {

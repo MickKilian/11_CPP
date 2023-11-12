@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:58:00 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 20:14:51 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 01:06:57 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public:
 	virtual ~FragTrap();
 	
 	FragTrap	&operator=(const FragTrap &);
+	void		attack(const std::string &);
 	void		highFiveGuys() const;
 };
 

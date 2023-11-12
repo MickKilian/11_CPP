@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:45:41 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 01:08:56 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,29 @@ FragTrap	&FragTrap::operator=(const FragTrap &other) {
 	this->_damagePoints = other._damagePoints;
 	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
+}
+
+void	FragTrap::attack(const std::string &target) {
+	if (_healthPoints == 0) {
+		std::cout << RED << "FragTrap" << " " << _name + " tried to attack but is already dead." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	if (_energyPoints == 0) {
+		std::cout << RED << "FragTrap" << " " << _name + " tried to attack but has no more energy." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	--_energyPoints;
+	if (_damagePoints == 0) {
+		std::cout << RED << "FragTrap" << " " << _name + " is attacking but has no damage points." << std::endl;
+		std::cout << RESET;
+		return ;
+	}
+	else {
+		std::cout << BOLDRED << "FragTrap" << " " << _name << " is attacking " << target << " causing " << _damagePoints << " points of damage." << std::endl;
+		std::cout << RESET;
+	}
 }
 
 void	FragTrap::highFiveGuys() const {
