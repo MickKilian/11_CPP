@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 01:09:03 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 02:03:47 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 ScavTrap::ScavTrap() : ClapTrap() {
 	_type = "ScavTrap";
-	_healthPoints = 100;
-	_energyPoints = 50;
-	_damagePoints = 20;
+	_healthPoints = _defaultHealthPoints;
+	_energyPoints = _defaultEnergyPoints;
+	_damagePoints = _defaultDamagePoints;
 	std::cout << "ScavTrap default constructor has been called to create " << _name << "." << std::endl;
 }
 
@@ -31,9 +31,9 @@ ScavTrap::ScavTrap(const ScavTrap &other) {
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	_type = "ScavTrap";
-	_healthPoints = 100;
-	_energyPoints = 50;
-	_damagePoints = 20;
+	_healthPoints = _defaultHealthPoints;
+	_energyPoints = _defaultEnergyPoints;
+	_damagePoints = _defaultDamagePoints;
 	std::cout << "ScavTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 

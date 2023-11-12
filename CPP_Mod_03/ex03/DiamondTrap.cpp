@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:54:04 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 02:09:32 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
 	_name = ClapTrap::_name;
 	ClapTrap::_name = _name + "_clap_name";
 	_type = "DiamondTrap";
-	_healthPoints = FragTrap::_healthPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_damagePoints = FragTrap::_damagePoints;
+	std::cout << "test" << std::endl;
+	_healthPoints = FragTrap::_defaultHealthPoints;
+	_energyPoints = ScavTrap::_defaultEnergyPoints;
+	_damagePoints = FragTrap::_defaultDamagePoints;
 	std::cout << "DiamondTrap default constructor has been called to create " << _name << "." << std::endl;
 }
 
@@ -31,13 +32,13 @@ DiamondTrap::DiamondTrap(const DiamondTrap &other) {
 	std::cout << "DiamondTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), FragTrap(name), ScavTrap(name) {
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name) {
+	std::cout << "test clap_name is " << ClapTrap::_name << std::endl;
 	_name = name;
-	ClapTrap::_name = _name + "_clap_name";
 	_type = "DiamondTrap";
-	_healthPoints = FragTrap::_healthPoints;
-	_energyPoints = ScavTrap::_energyPoints;
-	_damagePoints = FragTrap::_damagePoints;
+	_healthPoints = FragTrap::_defaultHealthPoints;
+	_energyPoints = ScavTrap::_defaultEnergyPoints;
+	_damagePoints = FragTrap::_defaultDamagePoints;
 	std::cout << "DiamondTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
