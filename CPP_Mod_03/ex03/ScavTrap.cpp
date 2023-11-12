@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:00:36 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 04:27:52 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	std::cout << "ScavTrap default constructor has been called." << std::endl;
 }*/
 
-ScavTrap::ScavTrap(const ScavTrap &other) {
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
 	*this = other;
 	std::cout << "ScavTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }

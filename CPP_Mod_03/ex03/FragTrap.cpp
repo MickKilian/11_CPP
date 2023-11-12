@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:00:23 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 04:27:36 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "FragTrap default constructor has been called." << std::endl;
 }*/
 
-FragTrap::FragTrap(const FragTrap &other) {
+FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
 	*this = other;
 	std::cout << "FragTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }

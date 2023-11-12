@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:00:11 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 04:26:30 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
 	std::cout << "DiamondTrap default constructor has been called." << std::endl;
 }*/
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other) {
+DiamondTrap::DiamondTrap(const DiamondTrap &other) : ClapTrap(other), FragTrap(other), ScavTrap(other) {
 	*this = other;
 	std::cout << "DiamondTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
