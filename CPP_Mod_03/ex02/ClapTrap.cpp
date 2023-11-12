@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/11 22:23:06 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 03:54:45 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,13 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &other) {
-	this->_name = other._name;
-	this->_healthPoints = other._healthPoints;
-	this->_energyPoints = other._energyPoints;
-	this->_damagePoints = other._damagePoints;
+	if (this != &other) {
+		this->_type = other._type;
+		this->_name = other._name;
+		this->_healthPoints = other._healthPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_damagePoints = other._damagePoints;
+	}
 	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
 	return(*this);
 }

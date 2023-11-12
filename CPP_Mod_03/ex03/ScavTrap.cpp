@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 02:03:47 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 04:00:36 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,13 @@ ScavTrap::~ScavTrap(void) {
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &other) {
-	this->_name = other._name;
-	this->_healthPoints = other._healthPoints;
-	this->_energyPoints = other._energyPoints;
-	this->_damagePoints = other._damagePoints;
+	if (this != &other) {
+		this->_type = other._type;
+		this->_name = other._name;
+		this->_healthPoints = other._healthPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_damagePoints = other._damagePoints;
+	}
 	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
 }

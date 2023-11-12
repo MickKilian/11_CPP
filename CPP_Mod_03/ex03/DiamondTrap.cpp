@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:53 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 02:09:32 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 04:00:11 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ DiamondTrap::~DiamondTrap(void) {
 }
 
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &other) {
-	this->_name = other._name;
-	this->_healthPoints = other._healthPoints;
-	this->_energyPoints = other._energyPoints;
-	this->_damagePoints = other._damagePoints;
+	if (this != &other) {
+		this->_type = other._type;
+		this->_name = other._name;
+		this->_healthPoints = other._healthPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_damagePoints = other._damagePoints;
+	}
 	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
 	return(*this);
 }
