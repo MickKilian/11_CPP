@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:20:54 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 21:11:31 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:37:24 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat(void) : Animal() {
+WrongCat::WrongCat(void) : WrongAnimal() {
 	this->_type = "cat";
-	std::cout << BOLDWHITE << "Cat " << BLUE << "default constructor " << RESET << "is called." << std::endl;
+	std::cout << BOLDWHITE << "WrongCat " << BLUE << "default constructor " << RESET << "is called." << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
+WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other) {
 	*this = other;
-	std::cout << BOLDWHITE << "Cat " << BLUE << "copy constructor " << RESET << "is called." << std::endl;
+	std::cout << BOLDWHITE << "WrongCat " << BLUE << "copy constructor " << RESET << "is called." << std::endl;
 }
 
-Cat::~Cat(void) {
-	std::cout << BOLDWHITE << "Cat " << RED << "destructor " << RESET << "is called." << std::endl;
+WrongCat::~WrongCat(void) {
+	std::cout << BOLDWHITE << "WrongCat " << RED << "destructor " << RESET << "is called." << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &other) {
+WrongCat &WrongCat::operator=(const WrongCat &other) {
 	if (this != &other)
 		this->_type = other._type;
 	std::cout << "Assignment operator has been called." << std::endl;
 	return (*this);
 }
 
-void	Cat::makeSound(void) const {
+void	WrongCat::makeSound(void) const {
 	std::cout << "I am a " << CYAN << this->_type << RESET << " : " << YELLOW << "Meow!!" << RESET << std::endl;
 }

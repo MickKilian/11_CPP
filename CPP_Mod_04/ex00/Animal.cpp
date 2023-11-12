@@ -6,29 +6,29 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:32:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 05:17:38 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/12 21:02:53 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("Animal") {
-	std::cout << "Animal default constructor is called" << std::endl;
+Animal::Animal() : _type("undetermined_animal") {
+	std::cout << BOLDWHITE << "Animal " << BLUE << "default constructor " << RESET << "is called." << std::endl;
 }
 
-Animal::Animal(Animal const &other) {
+Animal::Animal(const Animal &other) {
 	*this = other;
-	std::cout << "Animal copy constructor is called" << std::endl;
+	std::cout << BOLDWHITE << "Animal " << BLUE << "copy constructor " << RESET << "is called for : " << CYAN << this->_type << RESET << "." << std::endl;
 }
 
 Animal::~Animal() {
-	std::cout << "Animal destructor is called" << std::endl;
+	std::cout << BOLDWHITE << "Animal " << RED << "destructor " << RESET << "is called for : " << CYAN << this->_type << RESET << "." << std::endl;
 }
 
 Animal	&Animal::operator=(const Animal &other) {
 	if (this != &other)
 		this->_type = other._type;
-	std::cout << "Assignment operator has been called" << std::endl;
+	std::cout << "Assignment operator has been called for : " << CYAN << this->_type << RESET <<"." << std::endl;
 	return (*this);
 }
 
@@ -37,5 +37,5 @@ std::string		Animal::getType() const {
 }
 
 void	Animal::makeSound(void) const {
-	std::cout << "I am an animal and the sound I amke depends on the type of animal I am" << std::endl;
+	std::cout << "I am a " << CYAN << this->_type << RESET << " : " << "no sound..." << std::endl;
 }
