@@ -6,20 +6,17 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:20:54 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/13 02:50:52 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:59:09 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal() {
-	this->_type = "cat";
-	_brain = new Brain();
+Cat::Cat(void) : Animal("cat"), _brain(new Brain()) {
 	std::cout << BOLDWHITE << "Cat " << BLUE << "default constructor " << RESET << "is called." << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal(other) {
-	*this = other;
+Cat::Cat(const Cat &other) : Animal(other), _brain(new Brain(*other._brain)) {
 	std::cout << BOLDWHITE << "Cat " << BLUE << "copy constructor " << RESET << "is called." << std::endl;
 }
 
@@ -29,18 +26,16 @@ Cat::~Cat(void) {
 }
 
 Cat &Cat::operator=(const Cat &other) {
-	if (this != &other) {
-		this->_type = other._type;
-		this->_brain = new Brain(*other.getBrain());
-	}
+	Animal::operator=(other);
+	*_brain = *other._brain;
 	std::cout << BOLDWHITE << "Cat " << GREEN << "assignment operator " << RESET << "has been called." << std::endl;
 	return (*this);
 }
 
 void	Cat::makeSound(void) const {
-	std::cout << "I am a " << CYAN << this->_type << RESET << " : " << YELLOW << "Meow!!" << RESET << std::endl;
+	std::cout << "I am a " << CYAN << getType() << RESET << " : " << YELLOW << "Meow!!" << RESET << std::endl;
 }
 
-Brain	*Cat::getBrain() const {
-	return (this->_brain);
+const Brain	&Cat::getBrain() const {
+	return *_brain;
 }

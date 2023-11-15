@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:13:39 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/15 18:47:48 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:31:39 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONG_ANIMAL_H
-#define WRONG_ANIMAL_H
+#ifndef DOG_H
+#define DOG_H
 
-#include <iostream>
+#include "AAnimal.hpp"
 
-#define RED				"\x1b[31m"
-#define CYAN			"\x1b[36m"
-#define YELLOW			"\x1b[33m"
-#define BLUE			"\x1b[34m"
-#define WHITE			"\x1b[37m"
-#define BOLDWHITE		"\x1b[37;1m"
-#define RESET			"\x1b[0m"
-
-class WrongAnimal {
+class Dog : public AAnimal {
 	public:
-		WrongAnimal();
-		WrongAnimal(const WrongAnimal &other);
-		virtual ~WrongAnimal();
-		WrongAnimal &operator=(const WrongAnimal &other);
-		std::string	getType() const;
-		void		makeSound() const;
+		Dog();
+		Dog(const Dog &other);
+		~Dog();
+		Dog &operator=(const Dog &other);
+		virtual void		makeSound() const;
+		virtual const Brain	&getBrain() const;
 
-	protected:
-		std::string	_type;
-		WrongAnimal(std::string type);
+	private:
+		Brain	*_brain;
 };
 
-#endif //WRONG_ANIMAL
+#endif //DOG
+

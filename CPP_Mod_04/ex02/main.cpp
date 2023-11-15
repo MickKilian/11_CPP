@@ -6,11 +6,11 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 04:37:31 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/15 23:24:09 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/15 23:36:38 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <cstdlib>
@@ -20,7 +20,7 @@ int	main(void) {
 	std::cout << WHITE << "* FIRST TESTS : ARRAY of ANIMALS *" << RESET << std::endl;
 	std::cout << WHITE << "**********************************" << RESET << std::endl << std::endl;
 	const int	arraySize = 4;
-	Animal* animal[arraySize];
+	AAnimal* animal[arraySize];
 
 	for (int i = 0; i < arraySize; ++i) {
 		if (i < arraySize / 2)

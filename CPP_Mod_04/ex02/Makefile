@@ -6,17 +6,17 @@
 #    By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/24 00:51:30 by mbourgeo          #+#    #+#              #
-#    Updated: 2023/11/15 18:07:44 by mbourgeo         ###   ########.fr        #
+#    Updated: 2023/11/15 23:49:07 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= brains
+NAME		= abstract
 
 CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= Animal.cpp Dog.cpp Cat.cpp Brain.cpp main.cpp
+SRCS	 	= AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp main.cpp
 
 
 OBJS		= $(SRCS:.cpp=.o)

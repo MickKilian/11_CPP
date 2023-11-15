@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:13:39 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/13 02:50:23 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:26:44 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Dog : public Animal {
 		Dog(const Dog &other);
 		~Dog();
 		Dog &operator=(const Dog &other);
-		virtual void	makeSound() const;
-		virtual Brain	*getBrain() const;
+		virtual void		makeSound() const;
+		virtual const Brain	&getBrain() const;
 
 	private:
 		Brain	*_brain;
