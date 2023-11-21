@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 03:32:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/15 23:29:30 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/16 01:40:24 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ AAnimal::AAnimal(const AAnimal &other) : _type(other._type) {
 	std::cout << BOLDWHITE << "AAnimal " << BLUE << "copy constructor " << RESET << "is called for : " << CYAN << _type << RESET << "." << std::endl;
 }
 
-AAnimal::~AAnimal() {
+AAnimal::~AAnimal( void ) {
 	std::cout << BOLDWHITE << "AAnimal " << RED << "destructor " << RESET << "is called for : " << CYAN << _type << RESET << "." << std::endl;
 }
 
