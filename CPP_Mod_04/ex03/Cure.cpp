@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:14:42 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/16 01:50:09 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:40:22 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ Cure& Cure::operator=( const Cure& original ) {
 	return *this;
 }
 
-AMateria* Cure::clone( void ) const {
+AMateria*	Cure::clone( void ) const {
 	return (new Cure());
+}
+
+void		Cure::use( ICharacter& target ) {
+	std::cout << "Cure :"* Heals " << target << "'s wounds *" << std::endl;
 }
