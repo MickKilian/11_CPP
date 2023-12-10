@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:42:12 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/12/10 00:41:46 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 23:47:35 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap {
 		ClapTrap();
 		ClapTrap(const std::string &);
 		ClapTrap(const ClapTrap &);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		
 		ClapTrap	&operator=(const ClapTrap &);
 		void		attack(const std::string &);
