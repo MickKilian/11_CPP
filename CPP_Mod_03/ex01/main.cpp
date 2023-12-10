@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 19:49:52 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:05:04 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	main(void) {
 	ScavTrap	elie("Elie");
 	ScavTrap	denise(elie);
 	ScavTrap	simona("Simona");
-	ScavTrap	eleanore = simona;
+	ScavTrap	eleanore;
+	eleanore = simona;
 	ClapTrap	didie("Didie");
 
 	// We have 4 ScavTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).

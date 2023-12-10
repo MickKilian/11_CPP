@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 19:58:00 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 01:06:57 by mbourgeo         ###   ########.fr       */
+/*   Created: 2023/11/07 12:30:59 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/12/10 03:57:47 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 #include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap {
-public:
-	FragTrap();
-	FragTrap(std::string);
-	FragTrap(const FragTrap &);
-	virtual ~FragTrap();
-	
-	FragTrap	&operator=(const FragTrap &);
-	void		attack(const std::string &);
-	void		highFiveGuys() const;
+	public:
+		FragTrap();
+		FragTrap(const std::string &);
+		FragTrap(const FragTrap &);
+		virtual ~FragTrap();
+		
+		FragTrap	&operator=(const FragTrap &);
+		void		attack(const std::string &);
+		void		highFiveGuys() const;
 };
 
 std::ostream	&operator<<(std::ostream &o, FragTrap const &rhs);
 
-#endif // FRAG_TRAP_H
+#endif

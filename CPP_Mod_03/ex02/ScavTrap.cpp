@@ -6,34 +6,21 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:25:37 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:18:50 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() {
-	_type = "ScavTrap";
-	_healthPoints = 100;
-	_energyPoints = 50;
-	_damagePoints = 20;
-	std::cout << "ScavTrap default constructor has been called." << std::endl;
+ScavTrap::ScavTrap() : ClapTrap("ScavTrap", "defaultName", 100, 50, 20) {
+	std::cout << "ScavTrap default constructor has been called for " << _name << "." << std::endl;
 }
 
-/*ScavTrap::ScavTrap() : ClapTrap("defaultName", 100, 50, 20) {
-	std::cout << "ScavTrap default constructor has been called." << std::endl;
-}*/
-
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-	*this = other;
 	std::cout << "ScavTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	_type = "ScavTrap";
-	_healthPoints = 100;
-	_energyPoints = 50;
-	_damagePoints = 20;
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap("ScavTrap", name, 100, 50, 20) {
 	std::cout << "ScavTrap parametric constructor has been called for " << name << "." << std::endl;
 }
 
@@ -43,13 +30,9 @@ ScavTrap::~ScavTrap(void) {
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &other) {
 	if (this != &other) {
-		this->_type = other._type;
-		this->_name = other._name;
-		this->_healthPoints = other._healthPoints;
-		this->_energyPoints = other._energyPoints;
-		this->_damagePoints = other._damagePoints;
+		ClapTrap::operator=(other);
 	}
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called based on " << other._name << "." << std::endl;
 	return(*this);
 }
 

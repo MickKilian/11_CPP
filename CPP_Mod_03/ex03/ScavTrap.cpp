@@ -5,35 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:27:52 by mbourgeo         ###   ########.fr       */
+/*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/12/10 03:04:13 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() {
-	_type = "ScavTrap";
-	_healthPoints = _defaultHealthPoints;
-	_energyPoints = _defaultEnergyPoints;
-	_damagePoints = _defaultDamagePoints;
+ScavTrap::ScavTrap() : ClapTrap("ScavTrap", "defaultName", _defaultHealthPoints, _defaultEnergyPoints, _defaultDamagePoints) {
 	std::cout << "ScavTrap default constructor has been called to create " << _name << "." << std::endl;
 }
 
-/*ScavTrap::ScavTrap() : ClapTrap("defaultName", 100, 50, 20) {
-	std::cout << "ScavTrap default constructor has been called." << std::endl;
-}*/
-
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other) {
-	*this = other;
 	std::cout << "ScavTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	_type = "ScavTrap";
-	_healthPoints = _defaultHealthPoints;
-	_energyPoints = _defaultEnergyPoints;
-	_damagePoints = _defaultDamagePoints;
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap("ScavTrap", name, _defaultHealthPoints, _defaultEnergyPoints, _defaultDamagePoints) {
 	std::cout << "ScavTrap parametric constructor has been called to create " << name << "." << std::endl;
 }
 
@@ -43,13 +30,9 @@ ScavTrap::~ScavTrap(void) {
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &other) {
 	if (this != &other) {
-		this->_type = other._type;
-		this->_name = other._name;
-		this->_healthPoints = other._healthPoints;
-		this->_energyPoints = other._energyPoints;
-		this->_damagePoints = other._damagePoints;
+		ClapTrap::operator=(other);
 	}
-	std::cout << "Assignment operator has been called with reference : " << other._name << "." << std::endl;
+	std::cout << "ScavTrap assignment operator has been called based on " << other._name << "." << std::endl;
 	return(*this);
 }
 

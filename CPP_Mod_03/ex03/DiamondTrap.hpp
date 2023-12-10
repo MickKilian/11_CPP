@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 21:45:57 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:52:09 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 01:57:14 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,19 @@
 #define RESET			"\x1b[0m"
 
 class DiamondTrap : public FragTrap, public ScavTrap {
-public:
-	DiamondTrap();
-	DiamondTrap(std::string);
-	//DiamondTrap(std::string, unsigned int, unsigned int, unsigned int);
-	DiamondTrap(const DiamondTrap &);
-	~DiamondTrap();
+	public:
+		DiamondTrap();
+		DiamondTrap(const std::string &);
+		DiamondTrap(const DiamondTrap &);
+		~DiamondTrap();
+		
+		DiamondTrap			&operator=(const DiamondTrap &);
+		void				attack(const std::string &);
+		void				whoAmI(void) const;
+		const std::string	&getDiamondName(void) const;
 	
-	DiamondTrap	&operator=(const DiamondTrap &);
-	void		attack(const std::string &);
-	void		whoAmI(void) const;
-	std::string	getDiamondName(void) const;
-
-protected:
-	std::string		_name;
+	private:
+		std::string		_name;
 };
 
 std::ostream	&operator<<(std::ostream &o, DiamondTrap const &clap);

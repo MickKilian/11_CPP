@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 00:56:55 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 03:34:55 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int	main(void) {
 	DiamondTrap	elie("Elie");
 	DiamondTrap	denise(elie);
 	DiamondTrap	simona("Simona");
-	DiamondTrap	eleanore = simona;
+	DiamondTrap	eleanore;
+	eleanore = simona;
 	ClapTrap	didie("Didie");
 
 	// We have 4 DiamondTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
@@ -30,7 +31,6 @@ int	main(void) {
 	// We will use Simon and Victor to test our functions
 
 	std::cout << std::endl;
-	//
 
 	std::cout << simon << std::endl;
 	std::cout << victor << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 21:07:58 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 03:50:35 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/09 22:59:08 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ ClapTrap::ClapTrap() : _name("defaultName"), _healthPoints(10), _energyPoints(10
 	std::cout << "ClapTrap default constructor has been called for " << _name << "." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &other) {
-	*this = other;
+ClapTrap::ClapTrap(const ClapTrap &other) :
+	_name(other._name) ,
+	_healthPoints(other._healthPoints),
+	_energyPoints(other._energyPoints),
+	_damagePoints(other._damagePoints) {
 	std::cout << "ClapTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _healthPoints(10), _energyPoints(10), _damagePoints(0) {
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _healthPoints(10), _energyPoints(10), _damagePoints(0) {
 	std::cout << "ClapTrap parametric constructor has been called for " << name << "." << std::endl;
 }
 
@@ -36,7 +39,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other) {
 		this->_energyPoints = other._energyPoints;
 		this->_damagePoints = other._damagePoints;
 	}
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called based on " << other._name << "." << std::endl;
 	return(*this);
 }
 
@@ -94,7 +97,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	}
 }
 
-std::string		ClapTrap::getName() const {
+const std::string	&ClapTrap::getName() const {
 	return (this->_name);
 }
 

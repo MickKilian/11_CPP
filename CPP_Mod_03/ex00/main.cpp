@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/27 21:09:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 19:32:58 by mbourgeo         ###   ########.fr       */
+/*   Created: 2023/12/09 22:48:04 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/12/09 23:52:23 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include <stdio.h>
 
 int	main(void) {
 	ClapTrap	susan;
 	ClapTrap	elie("Elie");
 	ClapTrap	denise(elie);
 	ClapTrap	simona("Simona");
-	ClapTrap	eleanore = simona;
+	ClapTrap	celine = elie;
+	ClapTrap	eleanore;
+	eleanore = simona;
 
 	// We have 4 ClapTrap susan(defaultName), elie(Elie), simona(Simona) and eleanore(Simona).
 	// None of them has damagePoints, so they can can attack but will not cause any damage to their opponent.
@@ -35,7 +38,7 @@ int	main(void) {
 	simon.beRepaired(10);
 	std::cout << simon << std::endl;
 
-	// let's make 10 succesive attacks from simon on victor
+	// let's make 10 successive attacks from simon on victor
 	for (int i = 0; i < 11; i++) {
 		if  (victor.getEnergy() > 0 && simon.getDamage() > 0) {
 			simon.attack("Victor");

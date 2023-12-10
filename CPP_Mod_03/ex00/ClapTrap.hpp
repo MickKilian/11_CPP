@@ -6,7 +6,7 @@
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:42:12 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/07 17:16:32 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:39:28 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,27 @@
 #define RESET			"\x1b[0m"
 
 class ClapTrap {
-public:
-	ClapTrap();
-	ClapTrap(std::string);
-	ClapTrap(const ClapTrap &);
-	~ClapTrap();
+	public:
+		ClapTrap();
+		ClapTrap(const std::string &);
+		ClapTrap(const ClapTrap &);
+		~ClapTrap();
+		
+		ClapTrap	&operator=(const ClapTrap &);
+		void		attack(const std::string &);
+		void		takeDamage(unsigned int);
+		void		beRepaired(unsigned int);
 	
-	ClapTrap	&operator=(const ClapTrap &);
-	void		attack(const std::string &);
-	void		takeDamage(unsigned int);
-	void		beRepaired(unsigned int);
-
-	std::string		getName() const;
-	unsigned int	getHealth() const;
-	unsigned int	getEnergy() const;
-	unsigned int	getDamage() const;
-
-private:
-	std::string		_name;
-	unsigned int	_healthPoints;
-	unsigned int	_energyPoints;
-	unsigned int	_damagePoints;
+		const std::string	&getName() const;
+		unsigned int		getHealth() const;
+		unsigned int		getEnergy() const;
+		unsigned int		getDamage() const;
+	
+	private:
+		std::string		_name;
+		unsigned int	_healthPoints;
+		unsigned int	_energyPoints;
+		unsigned int	_damagePoints;
 };
 
 std::ostream	&operator<<(std::ostream &o, ClapTrap const &scav);

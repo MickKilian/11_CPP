@@ -5,35 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 19:54:56 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/12 04:24:51 by mbourgeo         ###   ########.fr       */
+/*   Created: 2023/11/07 12:30:24 by mbourgeo          #+#    #+#             */
+/*   Updated: 2023/12/10 03:58:24 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap() {
-	_type = "FragTrap";
-	_healthPoints = 100;
-	_energyPoints = 100;
-	_damagePoints = 30;
-	std::cout << "FragTrap default constructor has been called." << std::endl;
+FragTrap::FragTrap() : ClapTrap("FragTrap", "defaultName", 100, 100, 30) {
+	std::cout << "FragTrap default constructor has been called for " << _name << "." << std::endl;
 }
 
-/*FragTrap::FragTrap() : ClapTrap("defaultName", 100, 50, 20) {
-	std::cout << "FragTrap default constructor has been called." << std::endl;
-}*/
-
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other) {
-	*this = other;
 	std::cout << "FragTrap copy constructor has been called based on " << other._name << "." << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	_type = "FragTrap";
-	_healthPoints = 100;
-	_energyPoints = 100;
-	_damagePoints = 30;
+FragTrap::FragTrap(const std::string &name) : ClapTrap("FragTrap", name, 100, 100, 30) {
 	std::cout << "FragTrap parametric constructor has been called for " << name << "." << std::endl;
 }
 
@@ -43,13 +30,9 @@ FragTrap::~FragTrap(void) {
 
 FragTrap	&FragTrap::operator=(const FragTrap &other) {
 	if (this != &other) {
-		this->_type = other._type;
-		this->_name = other._name;
-		this->_healthPoints = other._healthPoints;
-		this->_energyPoints = other._energyPoints;
-		this->_damagePoints = other._damagePoints;
+		ClapTrap::operator=(other);
 	}
-	std::cout << "Assignment operator has been called using " << other._name << "." << std::endl;
+	std::cout << "Assignment operator has been called based on " << other._name << "." << std::endl;
 	return(*this);
 }
 
