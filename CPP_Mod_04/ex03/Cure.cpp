@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 00:14:42 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/21 15:40:22 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/01/26 23:56:43 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 #include <iostream>
 
 Cure::Cure() : AMateria( "cure" ) {
-	std::cout << "Default consructor called for cure." << std::endl;
+	std::cout << GREEN << "Default constructor" << RESET << " called for" << BOLDCYAN << " cure" << RESET << "." << std::endl;
 }
 
-Cure::Cure( const Cure& original ) : AMateria( original.getType() ) {
-	std::cout << "Copy consructor called for cure." << std::endl;
+Cure::Cure( const Cure& other ) : AMateria( other ) {
+	std::cout << GREEN << "Copy constructor" << RESET << " called for" << BOLDCYAN << " cure" << RESET << "." << std::endl;
 }
 
 Cure::~Cure() {
-	std::cout << "Destructor called for cure." << std::endl;
+	std::cout << RED << "Destructor" << RESET << " called for" << BOLDCYAN << " cure" << RESET << "." << std::endl;
 }
 
-Cure& Cure::operator=( const Cure& original ) {
-	_type = original._type;
-	std::cout << "Assignement operator called for cure." << std::endl;
-	return *this;
+Cure& Cure::operator=( const Cure& other ) {
+	(void)other;
+	std::cout << GREEN << "Assginment operator" << RESET << " called for" << BOLDCYAN << " cure" << RESET << "." << std::endl;
+	return (*this);
 }
 
 AMateria*	Cure::clone( void ) const {
-	return (new Cure());
+	return (new Cure(*this));
 }
 
 void		Cure::use( ICharacter& target ) {
-	std::cout << "Cure :"* Heals " << target << "'s wounds *" << std::endl;
+	std::cout << "* Heals " << YELLOW << target.getName() << RESET << "'s wounds *" << std::endl;
 }

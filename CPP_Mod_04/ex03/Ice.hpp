@@ -6,12 +6,12 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:57:12 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/16 01:34:55 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/01/17 05:27:33 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE
-# define ICE
+#ifndef ICE_H
+# define ICE_H
 
 #include "AMateria.hpp"
 
@@ -19,10 +19,12 @@ class Ice : public AMateria {
 
 	public:
 		Ice( void );
-		Ice ( const Ice& original );
+		Ice ( const Ice & );
 		~Ice( void );
-		Ice& operator=( const Ice& original );
+
+		Ice& operator=( const Ice & );
 		AMateria*	clone( void ) const;
+		void		use( ICharacter& target );
 };
 
-#endif // ICE
+#endif // ICE_H

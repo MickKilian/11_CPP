@@ -6,24 +6,25 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:40:23 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/21 18:29:50 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/01/17 06:16:38 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER.H
-# define CHARACTER.H
+#ifndef CHARACTER_H
+# define CHARACTER_H
 
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
-#define NB_MATERIA 4
+#define NB_MAX_MATERIA 4
 
 class Character : public ICharacter {
 	public:
 		Character( void );
-		Character( const std::string& name );
-		Character( const Character& original );
+		Character( const std::string & );
+		Character( const Character & );
 		~Character( void );
-		Character& operator=( const Character & original );
+		Character& operator=( const Character & );
 		std::string const &	getName( void ) const;
 		void				equip( AMateria* m );
 		void				unequip( int idx );
@@ -31,7 +32,7 @@ class Character : public ICharacter {
 
 	private:
 		std::string			_name;
-		AMateria*			_inventaire[4];
+		AMateria*			_inventory[NB_MAX_MATERIA];
 };
 
-#endif // CHARACTER.H
+#endif // CHARACTER_H

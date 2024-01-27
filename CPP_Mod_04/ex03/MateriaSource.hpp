@@ -6,26 +6,34 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 18:30:23 by mbourgeo          #+#    #+#             */
-/*   Updated: 2023/11/21 18:46:33 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/01/17 06:29:22 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIA_SOURCE.H
-# define MATERIA_SOURCE.H
+#ifndef MATERIA_SOURCE_H
+# define MATERIA_SOURCE_H
 
-#include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class MateriaSource : public AMateriaSource {
+# define NB_MAX_LEARNED 4
+
+class MateriaSource : public IMateriaSource {
+
 	public:
+
 		MateriaSource( void );
-		MateriaSource( const std::string& original );
+		MateriaSource( const MateriaSource & );
 		~MateriaSource( void );
-		MateraSource& operator=( const std::string& original );
-		void		learnMateria( AMateria* m ) = 0;
-		AMateria*	createMateria( std::string const & type ) = 0;
+		MateriaSource& operator=( const MateriaSource & );
+
+		void			learnMateria( AMateria* );
+		AMateria		*createMateria( std::string const & type );
+		const AMateria	*getLearnedList( void ) const;
+
 
 	private:
-		AMateria*	_newMateria;
-}
 
-#endif // MATERIA_SOURCE.H
+		AMateria*	_learnedMateria[NB_MAX_LEARNED];
+};
+
+#endif // MATERIA_SOURCE_H
