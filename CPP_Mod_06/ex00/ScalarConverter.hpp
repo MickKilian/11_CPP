@@ -1,14 +1,16 @@
 #ifndef SCALAR_CONVERTER_H
-# define SCLAR_CONVERTER_H
+# define SCALAR_CONVERTER_H
+
+#define PRECISION 1
 
 #include <iostream>
+#include <iomanip>
 #include <string>
-#include <limits>
 
 class ScalarConverter
 {
 	public:
-	static void convert (const str::string &literal);
+	static void convert(const std::string &literal);
 
 	private:
 		ScalarConverter();
