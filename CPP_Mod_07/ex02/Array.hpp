@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:20:15 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/10/31 23:14:29 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/10/31 23:55:45 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ template <typename T>
 class Array
 {
 	public:
-		Array() : _arr(new T()), _size(0)
+		Array() : _arr(NULL), _size(0)
 		{
 		}
 
@@ -51,16 +51,18 @@ class Array
 		Array(const Array &other) : _arr(new T[other.size()]()), _size(other.size())
 		{
 			for (std::size_t i = 0; i < other.size(); ++i)
-				(*this)[i] = other[i];
+				(*this)[i] = other._arr[i];
 		}
 
 		Array &operator=(const Array &other)
 		{
 			if (this != &other)
 			{
+				delete[] _arr;
 				_size = other.size();
+				_arr = new T[_size];
 				for (std::size_t i = 0; i < other.size(); ++i)
-					(*this)[i] = other[i];
+					(*this)[i] = other._arr[i];
 			}
 			return (*this);
 		}
