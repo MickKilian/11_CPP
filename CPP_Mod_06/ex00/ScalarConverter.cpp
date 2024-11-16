@@ -1,17 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/16 21:30:55 by mbourgeo          #+#    #+#             */
+/*   Updated: 2024/11/17 00:27:28 by mbourgeo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
-#include <cstdlib>	// pour strtol
-#include <string>
-#include <limits>
-
-bool	is_int_from_double(double doubleValue)
-{
-	return (doubleValue == static_cast<double>(static_cast<int>(doubleValue)));
-}
-
-bool	is_int_from_float(float floatValue)
-{
-	return (floatValue == static_cast<double>(static_cast<int>(floatValue)));
-}
 
 void	handle_char(char charValue)
 {
@@ -23,7 +22,7 @@ void	handle_char(char charValue)
 
 void	handle_int(int intValue)
 {
-	if (intValue < -128 || intValue > 127)
+	if (intValue < std::numeric_limits<char>::min() || intValue > std::numeric_limits<char>::max())
 		std::cout << "char: " << "Impossible" << std::endl;
 	else if (intValue < 32 || intValue > 126)
 		std::cout << "char: " << "Non displayable" << std::endl;
@@ -36,31 +35,45 @@ void	handle_int(int intValue)
 
 void	handle_float(float floatValue)
 {
-	if (!is_int_from_float(floatValue) || floatValue < -128 || floatValue > 127)
+	if (floatValue < std::numeric_limits<char>::min() || floatValue > std::numeric_limits<char>::max())
 		std::cout << "char: " << "Impossible" << std::endl;
 	else if (floatValue < 32 || floatValue > 126)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: " << "'" << static_cast<char>(floatValue) << "'" << std::endl;
-	if (static_cast<int>(floatValue) >= std::numeric_limits<int>::min()
-			&& static_cast<int>(floatValue) <= std::numeric_limits<int>::max())
+	if (floatValue >= std::numeric_limits<int>::min()
+			&& floatValue <= std::numeric_limits<int>::max())
 		std::cout << "int: " << static_cast<int>(floatValue) << std::endl;
 	else
 		std::cout << "int: " << "Impossible" << std::endl;
-	std::cout << "float: " << std::setprecision(PRECISION) << std::fixed << floatValue << "f" << std::endl;
-	std::cout << "double: " << std::setprecision(PRECISION) << std::fixed << static_cast<double>(floatValue) << std::endl;
+	if (floatValue == std::floor(floatValue))
+		std::cout << "float: " << std::setprecision(PRECISION) << std::fixed << floatValue;
+	else
+		std::cout << "float: " << floatValue;
+	if (floatValue >= 1e+5 && floatValue < 1e+6)
+		std::cout << ".0f" << std::endl;
+	else
+		std::cout << "f" << std::endl;
+	if (static_cast<double>(floatValue) == std::floor(static_cast<double>(floatValue)))
+		std::cout << "double: " << std::setprecision(PRECISION) << std::fixed << static_cast<double>(floatValue);
+	else
+		std::cout << "double: " << static_cast<double>(floatValue);
+	if (static_cast<double>(floatValue) >= 1e+5 && static_cast<double>(floatValue) < 1e+6)
+		std::cout << ".0" << std::endl;
+	else
+		std::cout << std::endl;
 }
 
 void	handle_double(double doubleValue)
 {
-	if (!is_int_from_double(doubleValue) || doubleValue < -128 || doubleValue > 127)
+	if (doubleValue < std::numeric_limits<char>::min() || doubleValue > std::numeric_limits<char>::max())
 		std::cout << "char: " << "Impossible" << std::endl;
 	else if (doubleValue < 32 || doubleValue > 126)
 		std::cout << "char: " << "Non displayable" << std::endl;
 	else
 		std::cout << "char: " << "'" << static_cast<char>(doubleValue) << "'" << std::endl;
-	if (static_cast<int>(doubleValue) >= std::numeric_limits<int>::min()
-			&& static_cast<int>(doubleValue) <= std::numeric_limits<int>::max())
+	if (doubleValue >= std::numeric_limits<int>::min()
+			&& doubleValue <= std::numeric_limits<int>::max())
 		std::cout << "int: " << static_cast<int>(doubleValue) << std::endl;
 	else
 		std::cout << "int: " << "Impossible" << std::endl;
@@ -72,8 +85,24 @@ void	handle_double(double doubleValue)
 	else if(doubleValue < -(std::numeric_limits<float>::max()))
 		std::cout << "float: " << "-inff" << std::endl;
 	else
-		std::cout << "float: " << std::setprecision(PRECISION) << std::fixed << static_cast<float>(doubleValue) << "f" << std::endl;
-	std::cout << "double: " << std::setprecision(PRECISION) << std::fixed << doubleValue << std::endl;
+	{
+		if (static_cast<float>(doubleValue) == std::floor(static_cast<float>(doubleValue)))
+			std::cout << "float: " << std::setprecision(PRECISION) << std::fixed << static_cast<float>(doubleValue);
+		else
+			std::cout << "float: " << static_cast<float>(doubleValue);
+		if (static_cast<float>(doubleValue) >= 1e+5 && static_cast<float>(doubleValue) < 1e+6)
+			std::cout << ".0f" << std::endl;
+		else
+			std::cout << "f" << std::endl;
+	}
+	if (doubleValue == std::floor(doubleValue))
+		std::cout << "double: " << std::setprecision(PRECISION) << std::fixed << doubleValue;
+	else
+		std::cout << "double: " << doubleValue;
+	if (doubleValue >= 1e+5 && doubleValue < 1e+6)
+		std::cout << ".0" << std::endl;
+	else
+		std::cout << std::endl;
 }
 
 void	handle_special(const std::string &special)
@@ -103,26 +132,34 @@ void	ScalarConverter::convert(const std::string &literal)
 
 	longValue = strtol(literal.c_str(), &end_ptr, 10);
 	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "NaN")
+	{
 		handle_special(literal);
-	else if (literal == "-inff" || literal == "+inff" || literal == "nanf" || literal == "NaNf")
+		return ;
+	}
+	if (literal == "-inff" || literal == "+inff" || literal == "nanf" || literal == "NaNf")
+	{
 		handle_special(literal.substr(0, literal.size() - 1));
-	else if (literal.length() == 1 && !std::isdigit(literal[0]))
+		return ;
+	}
+	if (literal.length() == 1 && !std::isdigit(literal[0]))
 	{
 		charValue = literal[0];
 		handle_char(charValue);
+		return ;
 	}
-	else if (*end_ptr == '\0' && longValue >= std::numeric_limits<int>::min() && longValue <= std::numeric_limits<int>::max())
+	if (*end_ptr == '\0' && longValue >= std::numeric_limits<int>::min() && longValue <= std::numeric_limits<int>::max())
 	{
 		intValue = static_cast<int>(longValue);
 		handle_int(intValue);
+		return ;
 	}
-	else if (literal.find(".") != std::string::npos)
+	if ((literal.find("f") == literal.size() - 1 || literal.find("F") == literal.size() - 1) && literal.find(".") < literal.size() - 2)
 	{
-		if (literal.find("f") == literal.size() - 1)
+		floatValue = strtof(literal.substr(0, literal.size() - 1).c_str(), &end_ptr);
+		if (*end_ptr == '\0')
 		{
-			floatValue = strtof(literal.c_str(), &end_ptr);
 			if ((floatValue > 0 && floatValue < std::numeric_limits<float>::min())
-					|| (floatValue < 0 && floatValue > -(std::numeric_limits<float>::min())))
+				|| (floatValue < 0 && floatValue > -(std::numeric_limits<float>::min())))
 				handle_impossible();
 			else if(floatValue > std::numeric_limits<float>::max())
 				handle_special("+inf");
@@ -130,20 +167,22 @@ void	ScalarConverter::convert(const std::string &literal)
 				handle_special("-inf");
 			else
 				handle_float(floatValue);
+			return ;
 		}
+	}
+	doubleValue = strtod(literal.c_str(), &end_ptr);
+	if (*end_ptr == '\0')
+	{
+		if ((doubleValue > 0 && doubleValue < std::numeric_limits<double>::min())
+				|| (doubleValue < 0 && doubleValue > -(std::numeric_limits<double>::min())))
+			handle_impossible();
+		else if(doubleValue > std::numeric_limits<double>::max())
+			handle_special("+inf");
+		else if(doubleValue < -(std::numeric_limits<double>::max()))
+			handle_special("-inf");
 		else
-		{
-			doubleValue = strtod(literal.c_str(), &end_ptr);
-			if ((doubleValue > 0 && doubleValue < std::numeric_limits<double>::min())
-					|| (doubleValue < 0 && doubleValue > -(std::numeric_limits<double>::min())))
-				handle_impossible();
-			else if(doubleValue > std::numeric_limits<double>::max())
-				handle_special("+inf");
-			else if(doubleValue < -(std::numeric_limits<double>::max()))
-				handle_special("-inf");
-			else
-				handle_double(doubleValue);
-		}
+			handle_double(doubleValue);
+		return ;
 	}
 	else
 		handle_impossible();
