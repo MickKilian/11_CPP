@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:20:15 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/10/31 23:55:45 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/18 02:08:40 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,18 @@ class Array
 		{
 		}
 
-		Array(int n) : _arr(new T[n]()), _size(n)
+		Array(int n)
 		{
+			if (n != 0)
+			{
+				_arr = new T[n]();
+				_size = n;
+			}
+			else
+			{
+				_arr = NULL;
+				_size = 0;
+			}
 		}
 
 		~Array()

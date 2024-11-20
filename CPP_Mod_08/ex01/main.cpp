@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:55:03 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/14 21:07:40 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/19 23:46:37 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,22 @@ int	main(void)
 	std::cout << GREEN << "Longest span is : " << sp.longestSpan() << RESET << std::endl;
 	std::vector<int>	vec;
 	std::cout << "Adding " << SIZE << " elements" << std::endl;
-	int		i = 1;
-	while (i <= SIZE)
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+	int		i = 0;
+	while (i < SIZE)
 	{
-		vec.push_back(i);
+		vec.push_back(std::rand() % (SIZE * 100));
 		++i;
 	}
-	sp.addNumber(vec.begin(), vec.end());
+	try
+	{
+		sp.addNumber(vec.begin(), vec.end());
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << RED << e.what() << RESET << std::endl;
+	}
+	//std::cout << sp;
 	try
 	{
 		std::cout << GREEN << "Shortest span is : " << sp.shortestSpan() << RESET << std::endl;

@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:42:21 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/15 02:06:42 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/18 12:08:03 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,11 @@ class	MutantStack : public std::stack< T, Container >
 		}
 
 		typedef typename Container::iterator iterator;
+		typedef typename Container::reverse_iterator reverse_iterator;
 		iterator begin() { return this->c.begin(); }
 		iterator end() { return this->c.end(); }
+		reverse_iterator rbegin() { return this->c.rbegin(); }
+		reverse_iterator rend() { return this->c.rend(); }
 };
 
 #endif

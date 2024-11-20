@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:55:03 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/15 01:38:08 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/18 12:37:52 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ int	main(void)
 	std::stack<int> s(mstack);
 
 	std::cout << YELLOW << "ADDITIONAL TESTS : " << RESET << std::endl;
+	std::cout << YELLOW << "Reverse iterators : " << RESET << std::endl;
+	MutantStack<int>::reverse_iterator itr = mstack.rbegin();
+	MutantStack<int>::reverse_iterator iter = mstack.rend();
+	++iter;
+	--iter;
+	while (itr != iter)
+	{
+	std::cout << *itr << std::endl;
+	++itr;
+	}
 	std::cout << YELLOW << "Large number for elements : " << RESET << std::endl;
 	MutantStack<int> testStack;
 	for (int i = 0; i < SIZE; i++)
@@ -82,6 +92,16 @@ int	main(void)
 	std::list<int> s_list(mlist);
 
 	std::cout << YELLOW << "ADDITIONAL TESTS : " << RESET << std::endl;
+	std::cout << YELLOW << "Reverse iterators : " << RESET << std::endl;
+	std::list<int>::reverse_iterator list_itr = mlist.rbegin();
+	std::list<int>::reverse_iterator list_iter = mlist.rend();
+	++list_iter;
+	--list_iter;
+	while (list_itr != list_iter)
+	{
+	std::cout << *list_itr << std::endl;
+	++list_itr;
+	}
 	std::cout << YELLOW << "Large number for elements : " << RESET << std::endl;
 	std::list<int> testList;
 	for (int i = 0; i < SIZE; i++)

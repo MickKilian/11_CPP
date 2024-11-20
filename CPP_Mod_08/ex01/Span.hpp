@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:42:21 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/14 21:06:03 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/19 21:10:48 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <cstdlib>
 # include <vector>
 # include <algorithm>
+# include <ctime>
 
 # define RED			"\x1b[31m"
 # define GREEN			"\x1b[32m"

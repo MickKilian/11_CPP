@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:34:55 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/10/31 23:43:18 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/18 02:17:35 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,40 @@ void unit_test(int size, T arg1, T arg2)
 	std::cout << "display copy : ";
 	ft_print(arr_cpy);
 	std::cout << YELLOW << "----> Modify 2nd element of source" << RESET << std::endl;
-	arr[1] = arg2;
+	try
+	{
+		arr[1] = arg2;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "display source : ";
 	ft_print(arr);
 	std::cout << "display copy : ";
 	ft_print(arr_cpy);
 	std::cout << YELLOW << "----> Modify 3rd element of copy" << RESET << std::endl;
-	arr_cpy[2] = arg2;
+	try
+	{
+		arr_cpy[2] = arg2;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "display source : ";
 	ft_print(arr);
 	std::cout << "display copy : ";
 	ft_print(arr_cpy);
 	std::cout << YELLOW << "ASSIGNMENT OPERATOR" << RESET << std::endl;
-	arr[1] = arg1;
+	try
+	{
+		arr[1] = arg1;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "source of size : " << arr.size() << std::endl;
 	std::cout << "display source : ";
 	ft_print(arr);
@@ -96,13 +117,27 @@ void unit_test(int size, T arg1, T arg2)
 	std::cout << "display copy : ";
 	ft_print(arr_cpy);
 	std::cout << YELLOW << "----> Modify 2nd element of source" << RESET << std::endl;
-	arr[1] = arg2;
+	try
+	{
+		arr[1] = arg2;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "display source : ";
 	ft_print(arr);
 	std::cout << "display copy : ";
 	ft_print(arr_assignment);
 	std::cout << YELLOW << "----> Modify 3rd element of copy" << RESET << std::endl;
-	arr_assignment[2] = arg2;
+	try
+	{
+		arr_assignment[2] = arg2;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "display source : ";
 	ft_print(arr);
 	std::cout << "display copy : ";

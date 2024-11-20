@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:34:27 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/14 20:57:13 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/19 21:08:14 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,9 @@ void	Span::addNumber(int elem)
 
 void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	for (std::vector<int>::iterator it = begin; it < end; ++it)
-	{
-		if (_vec.size() == _maxSize)
-			throw FullContainerException();
-		_vec.push_back(*it);
-	}
+	if (_vec.size() + std::distance(begin, end) > _maxSize)
+		throw FullContainerException();
+	_vec.insert(_vec.end(), begin, end);
 }
 
 int	Span::shortestSpan(void)
