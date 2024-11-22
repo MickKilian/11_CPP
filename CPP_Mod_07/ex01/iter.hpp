@@ -6,9 +6,12 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:24:41 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/10/31 21:13:45 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/22 15:47:00 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#define YELLOW			"\x1b[33m"
+#define RESET			"\x1b[0m"
 
 template <typename T>
 void	iter(T *arr, std::size_t size, void (* func)(const T &))

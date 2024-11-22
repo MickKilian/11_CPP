@@ -6,12 +6,15 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 20:18:12 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/10/31 20:18:51 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:08:09 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEMPLATES_H
 # define TEMPLATES_H
+
+#define YELLOW			"\x1b[33m"
+#define RESET			"\x1b[0m"
 
 template < typename T >
 void	swap( T &x, T &y )

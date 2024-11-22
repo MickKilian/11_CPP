@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 21:20:15 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/18 02:08:40 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:05:58 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,8 @@
 
 # include <iostream>
 
-#define RED				"\x1b[31m"
-#define BOLDRED			"\x1b[31;1m"
-#define GREEN			"\x1b[32m"
-#define BOLDGREEN		"\x1b[32;1m"
 #define YELLOW			"\x1b[33m"
-#define BLUE			"\x1b[34m"
-#define BOLDBLUE		"\x1b[34;1m"
-#define MAGENTA			"\x1b[35m"
-#define BOLDMAGENTA		"\x1b[35;1m"
 #define CYAN			"\x1b[36m"
-#define BOLDCYAN		"\x1b[36;1m"
-#define WHITE			"\x1b[37m"
-#define BOLDWHITE		"\x1b[37;1m"
-#define UNDER			"\x1b[4m"
 #define RESET			"\x1b[0m"
 
 template <typename T>
@@ -39,7 +27,7 @@ class Array
 		{
 		}
 
-		Array(int n)
+		Array(unsigned int n)
 		{
 			if (n != 0)
 			{
