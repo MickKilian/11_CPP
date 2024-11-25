@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 17:55:03 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/18 12:37:52 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:40:18 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
 	std::cout << *itr << std::endl;
 	++itr;
 	}
-	std::cout << YELLOW << "Large number for elements : " << RESET << std::endl;
+	std::cout << YELLOW << "Large number of elements : " << RESET << std::endl;
 	MutantStack<int> testStack;
 	for (int i = 0; i < SIZE; i++)
 		testStack.push(i + 1);
@@ -73,7 +73,7 @@ int	main(void)
 	std::list<int> mlist;
 	mlist.push_back(5);
 	mlist.push_back(17);
-	std::cout << GREEN << "top element : " << mlist.back() << RESET << std::endl;
+	std::cout << GREEN << "last element : " << mlist.back() << RESET << std::endl;
 	mlist.pop_back();
 	std::cout << GREEN << "size : " << mlist.size() << RESET << std::endl;
 	mlist.push_back(3);
@@ -102,7 +102,7 @@ int	main(void)
 	std::cout << *list_itr << std::endl;
 	++list_itr;
 	}
-	std::cout << YELLOW << "Large number for elements : " << RESET << std::endl;
+	std::cout << YELLOW << "Large number of elements : " << RESET << std::endl;
 	std::list<int> testList;
 	for (int i = 0; i < SIZE; i++)
 		testList.push_back(i + 1);

@@ -6,7 +6,7 @@
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 18:34:27 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/11/19 21:08:14 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:22:20 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,15 @@ void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 
 int	Span::shortestSpan(void)
 {
-	int	shortestSpan;
+	int					shortestSpan;
+	std::vector<int>	vec_copy(_vec);
 
-	if (_vec.size() <= 1)
+	if (vec_copy.size() <= 1)
 		throw NoDistanceException();
-	std::sort(_vec.begin(), _vec.end());
-	shortestSpan = std::abs(_vec[0] - _vec[1]);
-	std::vector<int>::iterator	it = _vec.begin();
-	while ((it + 1) != _vec.end())
+	std::sort(vec_copy.begin(), vec_copy.end());
+	shortestSpan = std::abs(vec_copy[0] - vec_copy[1]);
+	std::vector<int>::iterator	it = vec_copy.begin();
+	while ((it + 1) != vec_copy.end())
 	{
 		if (std::abs(*it - *(it + 1)) < shortestSpan)
 			shortestSpan = std::abs(*it - *(it + 1));
@@ -92,13 +93,15 @@ int	Span::shortestSpan(void)
 
 int	Span::longestSpan(void)
 {
+	std::vector<int>	vec_copy(_vec);
+
 	if (_vec.size() <= 1)
 		throw NoDistanceException();
-	std::sort(_vec.begin(), _vec.end());
-	std::vector<int>::iterator	it = _vec.begin();
-	while ((it + 1) != _vec.end())
+	std::sort(vec_copy.begin(), vec_copy.end());
+	std::vector<int>::iterator	it = vec_copy.begin();
+	while ((it + 1) != vec_copy.end())
 		it++;
-	return ((*it) - *(_vec.begin()));
+	return ((*it) - *(vec_copy.begin()));
 }
 
 std::ostream &operator<<(std::ostream &o, const Span &span)

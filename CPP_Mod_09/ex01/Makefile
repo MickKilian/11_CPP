@@ -6,17 +6,17 @@
 #    By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 23:34:27 by mbourgeo          #+#    #+#              #
-#    Updated: 2024/11/23 01:51:45 by mbourgeo         ###   ########.fr        #
+#    Updated: 2024/11/25 01:44:13 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= btc
+NAME		= RPN
 
 CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= BitcoinExchange.cpp main.cpp
+SRCS	 	= RPN.cpp main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
