@@ -6,7 +6,7 @@
 #    By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 23:34:27 by mbourgeo          #+#    #+#              #
-#    Updated: 2024/11/26 18:28:23 by mbourgeo         ###   ########.fr        #
+#    Updated: 2024/12/09 07:02:52 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC			= c++
 
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
-SRCS	 	= PmergeMe.cpp main.cpp
+SRCS	 	= main.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

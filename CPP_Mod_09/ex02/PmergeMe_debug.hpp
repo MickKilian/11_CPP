@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*   PmergeMe_debug.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:30:07 by mbourgeo          #+#    #+#             */
-/*   Updated: 2024/12/09 07:05:17 by mbourgeo         ###   ########.fr       */
+/*   Updated: 2024/12/09 07:02:24 by mbourgeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -243,21 +243,21 @@ void	printTimeProcessing(clock_t parsing, clock_t sorting, int nb_elem, std::str
 template < typename T >
 void	PmergeMe<T>::printInfos(const std::string &type, const std::string &color)
 {
-	std::cout << color << "\n+-";
-	for (size_t i = 0; i < type.size(); ++i)
-		std::cout << "-";
-	std::cout << "-+" << RESET;
-	std::cout << color << "\n| " << type << " |" << RESET;
-	std::cout << color << "\n+-";
-	for (size_t i = 0; i < type.size(); ++i)
-		std::cout << "-";
-	std::cout << "-+" << RESET << std::endl;
-	//std::cout << color << "After  : " << RESET << getDataSorted() << (checkSorted() ? GREEN "=> SORTED" : RED "=> NOT SORTED") << RESET << std::endl;
+//	std::cout << color << "\n+-";
+//	for (int i = 0; i < type.size(); ++i)
+//		std::cout << "-";
+//	std::cout << "-+" << RESET;
+//	std::cout << color << "\n| " << type << " |" << RESET;
+//	std::cout << color << "\n+-";
+//	for (int i = 0; i < type.size(); ++i)
+//		std::cout << "-";
+//	std::cout << "-+" << RESET << std::endl;
+	std::cout << BOLDWHITE << "After  : " << RESET << getDataSorted() << (checkSorted() ? GREEN "=> SORTED" : RED "=> NOT SORTED") << RESET << std::endl;
 	printTimeProcessing(getParsingTime(), getSortingTime(), getNbElem(), type, color);
-	//std::cout << "Your sort algorithm's nb of comparisons = " << getCountComparisons()
-	//	<< " (max : " << getMaxComparisons() << ") "
-	//	<< (getCountComparisons() <= getMaxComparisons() ? GREEN "=> GOOD" : RED "=> NOK")
-	//	<< RESET << std::endl;
+	std::cout << "Your sort algorithm's nb of comparisons = " << getCountComparisons()
+		<< " (max : " << getMaxComparisons() << ") "
+		<< (getCountComparisons() <= getMaxComparisons() ? GREEN "=> GOOD" : RED "=> NOK")
+		<< RESET << std::endl;
 }
 
 template < typename T >
@@ -350,6 +350,7 @@ inline T	binarySearch(T begin, T end, int elem_search, int nb_elem)
 	T	mid_1 = mid;
 	std::advance(mid_1, nb_elem - 1);
 	++count_comp;
+	//std::cout << WHITE << "-> Comparing : " << elem_search << " with " << *mid_1 << RESET << std::endl;
 	if (elem_search < *mid_1)
 		pos = binarySearch(begin, mid, elem_search, nb_elem);
 	else
@@ -370,8 +371,10 @@ inline void	insertRange(T &sequence, typename T::iterator pos, typename T::itera
 template < typename T >
 inline T	fordJohnsonInsertion(T sequence, int level)
 {
-	size_t	count = 0;
-	int		nb_elem = pow(2, level - 1);
+	int					count = 0;
+	int					nb_elem = pow(2, level - 1);
+	std::cout << YELLOW << "** Insert level_" << level << " : ";
+	printSeqLvl(sequence, level);
 	size_t	nb_as = sequence.size() / (2 * nb_elem);
 	size_t	nb_bs = sequence.size() / (2 * nb_elem) + (sequence.size() - (sequence.size() / (2 * nb_elem) * (2 * nb_elem))) / nb_elem;
 
@@ -392,7 +395,12 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 	}
 
 	//insert bs using jacobsthal
+	//std::cout << WHITE << "jacobsthal generate for n = " << nb_as << std::endl;
 	std::vector<int>	jacobsthalIndices = generateJacobsthalSequence(nb_as);
+	//std::cout << WHITE << "jacobsthal indices : ";
+	//printSeq(jacobsthalIndices);
+	//std::cout << MAGENTA << "** b1+as        : " << RESET;
+	//printSeq(main_seq);
 	if (nb_as > 1)
 	{
 		size_t temp = 1;
@@ -400,6 +408,7 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 		{
 			for (size_t i = jacobsthalIndices[j]; i > temp; --i)
 			{
+				//std::cout << "i_jacob = " << i << std::endl;
 				if (i > nb_as)
 					continue;
 				typename T::iterator	it_search = sequence.begin();
@@ -412,10 +421,15 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 				std::advance(it_bound_2, (i + count) * nb_elem);
 				std::advance(it_found_beg, (2 * i - 2) * nb_elem);
 				std::advance(it_found_end, (2 * i - 1) * nb_elem);
+				//std::cout << CYAN << "search b" << "[" << i << "] = " << *(it_search) << RESET << std::endl;
+				//std::cout << RED << "bound : " << *(it_bound_1) << RESET << std::endl;
 				typename T::iterator	pos = binarySearch(main_seq.begin(), it_bound_2, *(it_search), nb_elem);
 				typename T::iterator	it_found_elem = pos;
 				std::advance(it_found_elem, nb_elem - 1);
+				//std::cout << WHITE << "found : " << *(it_found_elem) << RESET << std::endl;
 				insertRange(main_seq, pos, it_found_beg, it_found_end);
+				//std::cout << MAGENTA << "** adding_bi    : " << RESET;
+				//printSeq(main_seq);
 				++count;
 			}
 			temp = jacobsthalIndices[j];
@@ -428,6 +442,8 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 		int i = nb_bs;
 		typename T::iterator	it_search_b = sequence.begin();
 		std::advance(it_search_b, (2 * i - 1) * nb_elem - 1);
+		//std::cout << CYAN << "search b" << "[" << i << "] = " << *(it_search_b) << RESET << std::endl;
+		//std::cout << RED << "bound : END" << RESET << std::endl;
 		typename T::iterator	pos = binarySearch(main_seq.begin(), main_seq.end(), *(it_search_b), nb_elem);
 		typename T::iterator	it_found_b = pos;
 		typename T::iterator	it_seq_b_beg = sequence.begin();
@@ -435,14 +451,21 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 		std::advance(it_found_b, - nb_elem + 1);
 		std::advance(it_seq_b_beg, (2 * i - 2) * nb_elem);
 		std::advance(it_seq_b_end, (2 * i - 1) * nb_elem);
+		//std::cout << WHITE << "found : " << *(it_found_b) << RESET << std::endl;
 		insertRange(main_seq, pos, it_seq_b_beg, it_seq_b_end);
+		//std::cout << MAGENTA << "** adding_odd_b : " << RESET;
+		//printSeq(main_seq);
 	}
 
 	//add odd elements
 	typename T::iterator it_odds = sequence.begin();
 	std::advance(it_odds, nb_as * 2 * nb_elem + (nb_bs - nb_as) * nb_elem);
 	for ( ; it_odds != sequence.end(); ++it_odds)
+	{
 		main_seq.push_back(*it_odds);
+	}
+	//std::cout << MAGENTA << "** adding_odds  : " << RESET;
+	//printSeq(main_seq);
 	return (main_seq);
 }
 
@@ -462,6 +485,7 @@ inline T	fordJohnsonSort(T sequence, int level)
 		typename T::iterator	it2 = it;
 		std::advance(it1, nb_elem -1);
 		std::advance(it2, (2 * nb_elem) - 1);
+		//std::cout << WHITE << "-> Comparing : " << *it1 << " with " << *it2 << RESET << std::endl;
 		if (*it1 > *it2)
 			for (int i = 0; i < nb_elem; ++i)
 			{
@@ -473,6 +497,8 @@ inline T	fordJohnsonSort(T sequence, int level)
 			}
 		std::advance(it, 2 * nb_elem);
 	}
+	std::cout << YELLOW << "**   Sort level_" << level << " : ";
+	printSeqLvl(sequence, level);
 	if (2 * pow(2, level) <= sequence.size())
 		sequence = fordJohnsonSort(sequence, level + 1);
 	sequence = fordJohnsonInsertion(sequence, level);
@@ -500,6 +526,7 @@ bool	PmergeMe<T>::sortData(char** &input, size_t sequence_size)
 		return 1;
 	}
 	end_parsing = clock();
+	std::cout << BOLDWHITE << "\nBefore : " << RESET << getDataOriginal() << std::endl;
 	_nbElem = sequence_size;
 	computeMaxComparisons(sequence_size);
 	start_sorting = clock();
