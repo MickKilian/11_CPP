@@ -468,18 +468,23 @@ inline T	fordJohnsonInsertion(T sequence, int level)
 		//std::cout << RED << "bound : END" << RESET << std::endl;
 		typename T::iterator	pos = binarySearch(main_seq.begin(), main_seq.end(), *(it_search_b), nb_elem);
 		std::cout << "FOUND : " << *pos << std::endl;
+		std::cout << "IN : " << std::endl;
+		typename T::iterator	it_found_b = pos;
+		typename T::iterator	it_seq_b_beg = sequence.begin();
+		typename T::iterator	it_seq_b_end = sequence.begin();
+		std::advance(it_found_b, - nb_elem + 1);
+		std::advance(it_seq_b_beg, (2 * i - 2) * nb_elem);
+		std::advance(it_seq_b_end, (2 * i - 1) * nb_elem);
+		//std::cout << WHITE << "found : " << *(it_found_b) << RESET << std::endl;
+		std::cout << "OUT : " << std::endl;
 		if (std::distance(pos, main_seq.end()) > 0)
-		{
-			std::cout << "IN : " << std::endl;
-			typename T::iterator	it_found_b = pos;
-			typename T::iterator	it_seq_b_beg = sequence.begin();
-			typename T::iterator	it_seq_b_end = sequence.begin();
-			std::advance(it_found_b, - nb_elem + 1);
-			std::advance(it_seq_b_beg, (2 * i - 2) * nb_elem);
-			std::advance(it_seq_b_end, (2 * i - 1) * nb_elem);
-			//std::cout << WHITE << "found : " << *(it_found_b) << RESET << std::endl;
-			std::cout << "OUT : " << std::endl;
 			insertRange(main_seq, pos, it_seq_b_beg, it_seq_b_end);
+		else
+		{
+			for ( ; it_seq_b_beg != it_seq_b_end; ++it_seq_b_beg)
+			{
+				main_seq.push_back(*it_seq_b_beg);
+			}
 		}
 		//std::cout << MAGENTA << "** adding_odd_b : " << RESET;
 		//printSeq(main_seq);
