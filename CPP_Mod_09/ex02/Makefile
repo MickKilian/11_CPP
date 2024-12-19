@@ -19,8 +19,16 @@ SRC			=	main.cpp
 OBJ			=	$(SRC:.cpp=.o)
 DEP			=	$(SRC:.cpp=.d)
 
+<<<<<<< HEAD
 # Output executable
 NAME		=	PmergeMe
+=======
+CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
+
+SRCS	 	= main_new.cpp
+
+OBJS		= $(SRCS:.cpp=.o)
+>>>>>>> 6eee4f7376af3049b8d6e6c499a3fca0ff5a871a
 
 # Default target
 all: $(NAME)
