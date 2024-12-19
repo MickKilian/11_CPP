@@ -5,35 +5,44 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/22 23:34:27 by mbourgeo          #+#    #+#              #
-#    Updated: 2024/12/09 07:02:52 by mbourgeo         ###   ########.fr        #
+#    Created: 2024/12/19 10:28:20 by mbourgeo          #+#    #+#              #
+#    Updated: 2024/12/19 10:29:27 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= PmergeMe
+# Compiler and flags
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-CC			= c++
+# Project files
+SRC			=	main.cpp
+OBJ			=	$(SRC:.cpp=.o)
+DEP			=	$(SRC:.cpp=.d)
 
-CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
+# Output executable
+NAME		=	PmergeMe
 
-SRCS	 	= main.cpp
-
-OBJS		= $(SRCS:.cpp=.o)
-
+# Default target
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+# Link the executable
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
+# Compile source files into object files with dependencies
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
+# Include dependencies
+-include $(DEP)
+
+# Clean up
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJ) $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re

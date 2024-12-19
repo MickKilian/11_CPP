@@ -5,35 +5,44 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbourgeo <mbourgeo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/22 23:34:27 by mbourgeo          #+#    #+#              #
-#    Updated: 2024/11/23 01:51:45 by mbourgeo         ###   ########.fr        #
+#    Created: 2024/12/19 10:28:20 by mbourgeo          #+#    #+#              #
+#    Updated: 2024/12/19 10:37:26 by mbourgeo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= btc
+# Compiler and flags
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-CC			= c++
+# Project files
+SRC			=	BitcoinExchange.cpp main.cpp
+OBJ			=	$(SRC:.cpp=.o)
+DEP			=	$(SRC:.cpp=.d)
 
-CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
+# Output executable
+NAME		=	btc
 
-SRCS	 	= BitcoinExchange.cpp main.cpp
-
-OBJS		= $(SRCS:.cpp=.o)
-
+# Default target
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $^
+# Link the executable
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) -o $@ $^
 
+# Compile source files into object files with dependencies
 %.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -MMD -c $< -o $@
 
+# Include dependencies
+-include $(DEP)
+
+# Clean up
 clean:
-	rm -rf $(OBJS)
+	rm -f $(OBJ) $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all clean fclean re
+.PHONY: all clean fclean re
